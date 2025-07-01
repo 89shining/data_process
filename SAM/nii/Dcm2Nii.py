@@ -1,6 +1,6 @@
 """
 将dicom 2D切片转为nii.gz
-change name
+且change name为p_n格式，生成原name——p_n对照表
 """
 import csv
 import nibabel as nib

@@ -40,9 +40,11 @@ if __name__ == "__main__":
 
     palist = GetSubFolders(ctdir)
     for pa in palist:
+        print(pa)
         nid = pa.split('_', -1)[-1]    # 用_做分割，取最后一位元素即患者编号
         srcfile = ctdir + '/' + pa + '/image.nii.gz'       # 获取患者图像文件
         dstfile = f"{imadir}/GTVp_{int(nid):03d}_0000.nii.gz"    # 构建新文件
+        print(dstfile)
         shutil.copy(srcfile, dstfile)      # 文件复制
 
         srcfile = ctdir + '/' + pa + '/GTVp.nii.gz'

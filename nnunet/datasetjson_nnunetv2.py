@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 # 数据集路径
-dataset_dir = Path("C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250630/nnUNet/Dataset001_GTVp")
+dataset_dir = Path("C:/Users/dell/Desktop/Dataset002_RGB")
 images_tr_dir = dataset_dir / "imagesTr"
 
 # 自动提取模态编号和病例数
@@ -36,7 +36,9 @@ labels = {
 channel_names = {str(i): f"Modality{i}" for i in range(len(modalities))}
 # 如果有已知模态名称（如 T1, FLAIR），需手动替换：
 channel_names = {
-    "0": "CT"
+    "0": "R",
+    "1": "G",
+    "2": "B"
 }  # 示例
 
 # 构建 dataset.json
