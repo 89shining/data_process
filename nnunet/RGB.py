@@ -55,7 +55,7 @@ def create_pseudo_rgb_nii(image_nii_path, output_nii_path):
     print(f"✅ Saved pseudo-RGB nii.gz for nnU-Net: {output_nii_path}")
 
 # 示例调用（循环多个患者）
-input_root = "C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250630/datanii/train_nii"  # nii.gz原文件
+input_root = "C:/Users/dell/Desktop/20250707/datanii/test_nii"  # nii.gz原文件
 output_root = "C:/Users/dell/Desktop/Dataset002_RGB"
 three_channels_root = os.path.join(output_root, "images")
 os.makedirs(output_root, exist_ok=True)
@@ -79,7 +79,7 @@ for pa in palist:
 将伪RGB.nii.gz分别拆分为R G B.nii.gz
 """
 input_dir = three_channels_root   #   伪RGB图像路径
-single_channel_dir = os.path.join(output_root, "imagesTr")  #  单通道结果的路径
+single_channel_dir = os.path.join(output_root, "imagesTs")  #  单通道结果的路径
 os.makedirs(single_channel_dir, exist_ok=True)
 
 for filename in sorted(os.listdir(input_dir)):
@@ -117,7 +117,7 @@ for filename in sorted(os.listdir(input_dir)):
 提取GTVp.nii.gz，俺Dataset格式改名
 """
 input_dir = input_root
-GT_dir = os.path.join(output_root, "labelsTr")
+GT_dir = os.path.join(output_root, "labelsTs")
 os.makedirs(GT_dir, exist_ok=True)
 
 # 对pa列表按数字排序，确保顺序为p_0, p_1, ..., p_n

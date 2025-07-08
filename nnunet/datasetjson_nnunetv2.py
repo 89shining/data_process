@@ -35,11 +35,15 @@ labels = {
 # 生成 channel_names（假设模态顺序为 0,1,2...）
 channel_names = {str(i): f"Modality{i}" for i in range(len(modalities))}
 # 如果有已知模态名称（如 T1, FLAIR），需手动替换：
+# channel_names = {
+#     "0": "CT"
+# }
+# 多模态
 channel_names = {
     "0": "R",
     "1": "G",
     "2": "B"
-}  # 示例
+}
 
 # 构建 dataset.json
 dataset_json = {
