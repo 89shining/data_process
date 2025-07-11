@@ -32,9 +32,9 @@ def GetSubFolders(file_dir):
 
 if __name__ == "__main__":
 
-    ctdir = 'C:/Users/dell/Desktop/20250707/datanii/train_nii'   # 训练集 nii目录
-    imadir = 'C:/Users/dell/Desktop/nnUNet_L_2d/Dataset001_GTVp/imagesTr'    # 训练 images保存地址
-    maskdir = 'C:/Users/dell/Desktop/nnUNet_L_2d/Dataset001_GTVp/labelsTr'   # 训练 masks保存地址
+    ctdir = 'C:/Users/dell/Desktop/20250711/datanii/train_nii'   # 训练集 nii目录
+    imadir = 'C:/Users/dell/Desktop/20250711/nnUNet/Dataset001_GTVp/imagesTr'    # 训练 images保存地址
+    maskdir = 'C:/Users/dell/Desktop/20250711/nnUNet/Dataset001_GTVp/labelsTr'   # 训练 masks保存地址
     os.makedirs(imadir, exist_ok = True)
     os.makedirs(maskdir, exist_ok = True)
 
@@ -52,9 +52,9 @@ if __name__ == "__main__":
         dstfile = f"{maskdir}/{dataset_name}_{int(nid):03d}.nii.gz"
         shutil.copy(srcfile, dstfile)  # 文件复制
 
-    ctdir = 'C:/Users/dell/Desktop/20250707/datanii/test_nii'   # 测试集 nii目录
-    imadir = 'C:/Users/dell/Desktop/nnUNet_L_2d/Dataset001_GTVp/imagesTs'   # 测试 images保存地址
-    maskdir = 'C:/Users/dell/Desktop/nnUNet_L_2d/Dataset001_GTVp/labelsTs'      # 测试 masks保存地址，可选
+    ctdir = 'C:/Users/dell/Desktop/20250711/datanii/test_nii'   # 测试集 nii目录
+    imadir = 'C:/Users/dell/Desktop/20250711/nnUNet/Dataset001_GTVp/imagesTs'   # 测试 images保存地址
+    maskdir = 'C:/Users/dell/Desktop/20250711/nnUNet/Dataset001_GTVp/labelsTs'      # 测试 masks保存地址，可选
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
 
