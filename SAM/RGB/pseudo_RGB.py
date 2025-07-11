@@ -1,5 +1,5 @@
 """
-自动读取newCSV，2D nii切片 -> 窗宽窗位变化，0-255 -> 拼接伪RGB图像
+自动读取pseudoCSV，2D nii切片 -> 窗宽窗位变化，0-255 -> 拼接伪RGB图像
 """
 import os
 import SimpleITK as sitk
@@ -8,8 +8,8 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 
-root_dir = "D:/SAM/GTVp_CTonly/20250707/dataset/test"
-csv_path = os.path.join(root_dir, "newtest_nii.csv")
+root_dir = "C:/Users/dell/Desktop/20250711/dataset/train"
+csv_path = os.path.join(root_dir, "pseudo_train_nii.csv")
 save_dir = os.path.join(root_dir, "pseudo_rgb_images")
 os.makedirs(save_dir, exist_ok=True)
 
