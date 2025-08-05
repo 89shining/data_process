@@ -1,3 +1,8 @@
+"""
+计算GT和pred均>0的切片
+"""
+
+
 import numpy as np
 import os
 import SimpleITK as sitk
