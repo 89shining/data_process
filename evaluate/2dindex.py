@@ -34,7 +34,6 @@ def ComputeDSC2D(gtDir, predDir):
     dice = dice / iNum
     return dice
 
-
 def ComputeHD95(gtDir, predDir):
     oridata = sitk.ReadImage(gtDir)
     fColSpacing = oridata.GetSpacing()[1]
