@@ -32,13 +32,13 @@ def GetSubFolders(file_dir):
 
 if __name__ == "__main__":
 
-    ctdir = 'C:/Users/dell/Desktop/CTV/datanii/train_nii'   # 训练集 nii目录
-    imadir = 'C:/Users/dell/Desktop/CTV/nnUNet/Dataset003_CTV/imagesTr'    # 训练 images保存地址
-    maskdir = 'C:/Users/dell/Desktop/CTV/nnUNet/Dataset003_CTV/labelsTr'   # 训练 masks保存地址
+    ctdir = 'C:/Users/dell/Desktop/GTVp/datanii/train_nii'   # 训练集 nii目录
+    imadir = 'C:/Users/dell/Desktop/GTVp/nnUNet/Dataset004_CTVgtv/imagesTr'    # 训练 images保存地址
+    maskdir = 'C:/Users/dell/Desktop/GTVp/nnUNet/Dataset004_CTVgtv/labelsTr'   # 训练 masks保存地址
     os.makedirs(imadir, exist_ok = True)
     os.makedirs(maskdir, exist_ok = True)
 
-    dataset_name = "CTV"  # 数据集名称
+    dataset_name = "CTVgtv"  # 数据集名称
     palist = GetSubFolders(ctdir)
     for pa in palist:
         print(pa)
@@ -48,13 +48,18 @@ if __name__ == "__main__":
         print(dstfile)
         shutil.copy(srcfile, dstfile)      # 文件复制
 
+        srcfile = ctdir + '/' + pa + '/GTVp.nii.gz'  # 获取患者图像文件
+        dstfile = f"{imadir}/{dataset_name}_{int(nid):03d}_0001.nii.gz"  # 构建新文件
+        print(dstfile)
+        shutil.copy(srcfile, dstfile)  # 文件复制
+
         srcfile = ctdir + '/' + pa + '/CTV.nii.gz'   # 获取患者mask GT文件地址
         dstfile = f"{maskdir}/{dataset_name}_{int(nid):03d}.nii.gz"
         shutil.copy(srcfile, dstfile)  # 文件复制
 
-    ctdir = 'C:/Users/dell/Desktop/CTV/datanii/test_nii'   # 测试集 nii目录
-    imadir = 'C:/Users/dell/Desktop/CTV/nnUNet/Dataset003_CTV/imagesTs'   # 测试 images保存地址
-    maskdir = 'C:/Users/dell/Desktop/CTV/nnUNet/Dataset003_CTV/labelsTs'      # 测试 masks保存地址，可选
+    ctdir = 'C:/Users/dell/Desktop/GTVp/datanii/test_nii'   # 测试集 nii目录
+    imadir = 'C:/Users/dell/Desktop/GTVp/nnUNet/Dataset004_CTVgtv/imagesTs'   # 测试 images保存地址
+    maskdir = 'C:/Users/dell/Desktop/GTVp/nnUNet/Dataset004_CTVgtv/labelsTs'      # 测试 masks保存地址，可选
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
 
@@ -64,6 +69,11 @@ if __name__ == "__main__":
         srcfile = ctdir + '/' + pa + '/image.nii.gz'
         dstfile = f"{imadir}/{dataset_name}_{int(nid):03d}_0000.nii.gz"
         shutil.copy(srcfile, dstfile)
+
+        srcfile = ctdir + '/' + pa + '/GTVp.nii.gz'  # 获取患者图像文件
+        dstfile = f"{imadir}/{dataset_name}_{int(nid):03d}_0001.nii.gz"  # 构建新文件
+        print(dstfile)
+        shutil.copy(srcfile, dstfile)  # 文件复制
 
         srcfile = ctdir + '/' + pa + '/CTV.nii.gz'
         dstfile = f"{maskdir}/{dataset_name}_{int(nid):03d}.nii.gz"

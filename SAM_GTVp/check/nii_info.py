@@ -6,10 +6,10 @@ import numpy as np
 from PIL import Image
 import nibabel as nib
 #
-# ref = nib.load("C:/Users/dell/Desktop/SAM/GTVp_CTonly/Data/Data_nii/p_65/image.nii.gz")
+# ref = nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/Data/Data_nii/p_65/image.nii.gz")
 # ref_shape = ref.shape[:2]
 #
-# png = Image.open("C:/Users/dell/Desktop/SAM/GTVp_CTonly/testresults/finetune1.1/masks_pred/p_65/21.png")
+# png = Image.open("C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/testresults/finetune1.1/masks_pred/p_65/21.png")
 # print("PNG size:", png.size)
 # print("Reference slice size:", ref_shape)
 
@@ -30,13 +30,13 @@ import nibabel as nib
 # import nibabel as nib
 # import matplotlib.pyplot as plt
 #
-# img = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).get_fdata()
-# pred = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).get_fdata()
-# gt = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).get_fdata()
+# img = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).get_fdata()
+# pred = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).get_fdata()
+# gt = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).get_fdata()
 #
-# print((nib.load("C:/Users/dell/Desktop/SAM/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).affine)
-# print((nib.load("C:/Users/dell/Desktop/SAM/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).affine)
-# print((nib.load("C:/Users/dell/Desktop/SAM/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).affine)
+# print((nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).affine)
+# print((nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).affine)
+# print((nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).affine)
 #
 # z = 51  # 任意层号
 # plt.imshow(img[:, :, z], cmap='gray')
