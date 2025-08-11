@@ -55,8 +55,8 @@ def create_pseudo_rgb_nii(image_nii_path, output_nii_path):
     print(f"✅ Saved pseudo-RGB nii.gz for nnU-Net: {output_nii_path}")
 
 # 示例调用（循环多个患者）
-input_root = "C:/Users/dell/Desktop/20250711/datanii/train_nii"  # nii.gz原文件
-output_root = "C:/Users/dell/Desktop/20250711/nnUNet/Dataset002_RGB"
+input_root = "C:/Users/WS/Desktop/add"  # nii.gz原文件
+output_root = "C:/Users/WS/Desktop/dataset/nnUNet/Dataset002_RGB"
 three_channels_root = os.path.join(output_root, "images")
 os.makedirs(output_root, exist_ok=True)
 os.makedirs(three_channels_root, exist_ok=True)
