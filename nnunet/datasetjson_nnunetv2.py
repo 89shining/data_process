@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 # 数据集路径
-dataset_dir = Path("C:/Users/dell/Desktop/20250711/nnUNet/Dataset002_RGB")
+dataset_dir = Path("C:/Users/dell/Desktop/GTVp/nnUNet/Dataset004_CTVgtv")
 images_tr_dir = dataset_dir / "imagesTr"
 
 # 自动提取模态编号和病例数
@@ -28,7 +28,7 @@ modalities = sorted(modalities)  # 模态编号排序（如 "0000", "0001"）
 # 手动填写 labels（根据你的数据集）
 labels = {
     "background": 0,
-    "GTVp": 1,
+    "CTV": 1,
     # 添加更多类别...
 }
 
@@ -42,9 +42,9 @@ channel_names = {str(i): f"Modality{i}" for i in range(len(modalities))}
 
 # 多模态
 channel_names = {
-    "0": "R",
-    "1": "G",
-    "2": "B"
+    "0": "CT",
+    "1": "GTVp"
+    # "2": "B"
 }
 
 # 构建 dataset.json

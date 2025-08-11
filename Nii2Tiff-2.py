@@ -70,8 +70,8 @@ def NibabelNII(filename):
 if __name__ == "__main__":
 
     srcdir = 'C:/Users\dell\Desktop\SAM\GTVp_CTonly/20250604/datanii/test_nii'      # nii数据， srcdir下一级子目录是患者文件夹
-    imadir = 'C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250604/dataset/test/images'    # images保存目录,不能在srcdir目录中，保存后子目录是患者文件夹
-    maskdir = 'C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250604/dataset/test/masks'    # masks同上
+    imadir = 'C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/20250604/dataset/test/images'    # images保存目录,不能在srcdir目录中，保存后子目录是患者文件夹
+    maskdir = 'C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/20250604/dataset/test/masks'    # masks同上
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
 

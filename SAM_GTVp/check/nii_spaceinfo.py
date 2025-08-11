@@ -41,8 +41,8 @@ print("Affine:\n", nii.affine)
 # from PIL import Image
 # import numpy as np
 #
-# img = np.array(Image.open("C:/Users/WS/Desktop/SAM/GTVp_CTonly/20250515/Dataset/test/images/p_0/37.tiff"))
-# mask = np.array(Image.open("C:/Users/WS/Desktop/SAM/GTVp_CTonly/20250515/testresults/20250522/masks_pred/p_0/37.png"))
+# img = np.array(Image.open("C:/Users/WS/Desktop/SAM_GTVp/GTVp_CTonly/20250515/Dataset/test/images/p_0/37.tiff"))
+# mask = np.array(Image.open("C:/Users/WS/Desktop/SAM_GTVp/GTVp_CTonly/20250515/testresults/20250522/masks_pred/p_0/37.png"))
 #
 # plt.imshow(img, cmap='gray')
 # plt.imshow(mask, cmap='Reds', alpha=0.4)  # 半透明看是否重合
