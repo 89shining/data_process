@@ -8,8 +8,8 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 
-root_dir = "C:/Users/dell/Desktop/20250711/dataset/train"
-csv_path = os.path.join(root_dir, "train_nii.csv")
+root_dir = r"C:\Users\WS\Desktop\CTV\dataset/test"   # 2d nii train/test根目录
+csv_path = os.path.join(root_dir, "test_nii.csv")
 save_dir = os.path.join(root_dir, "rgb_images")
 os.makedirs(save_dir, exist_ok=True)
 

@@ -187,16 +187,16 @@ def generate_summary_mean_sheet(output_excel):
 
 if __name__ == "__main__":
     # GT文件目录
-    gtDir = r'C:\Users\dell\Desktop\CTV\nnUNet\Dataset004_CTVgtv\labelsTs'
+    gtDir = r'C:\Users\WS\Desktop\20250809\nnUNet\Dataset001_GTVp\labelsTs'
     # excel文件保存地址
-    excel_path = r'C:\Users\dell\Desktop/eval_2D.xlsx'
+    excel_path = r'C:\Users\WS\Desktop/eval_2D.xlsx'
 
     # 模型及其预测路径配置
     base_name = "TrainAll_pseudoRGB"
     model_paths = {
-        "nnUNet_CTVgtv_2d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTVgtv_2d',
+        # "nnUNet_2d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_2d',
         # "nnUNet_2.5d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_2.5d'
-        "nnUNet_CTVgtv_3d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTVgtv_3d'
+        # "nnUNet_3d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_3d'
         # f"SAM_{base_name}_0p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_0p',
         # f"SAM_{base_name}_3p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_3p',
         # f"SAM_{base_name}_5p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_5p',
