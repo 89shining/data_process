@@ -103,24 +103,113 @@ def evaluate_model_to_excel(gtDir, predDir, model_name, excel_path):
 
     print(f"写入完成 → Sheet: {model_name}")
 
+# summary生成
+def generate_summary_mean_sheet(output_excel):
+    import openpyxl
+    from openpyxl.styles import Alignment, Font
+    from openpyxl.utils import get_column_letter
+    import pandas as pd
+
+    wb = openpyxl.load_workbook(output_excel)
+    summary_data = []
+
+    ref_columns = []
+    for sheet in wb.sheetnames:
+        if sheet == "Summary_Mean":
+            continue
+        ws = wb[sheet]
+        if ws.max_row < 2:
+            continue
+        if not ref_columns:
+            ref_columns = [ws.cell(row=1, column=col).value for col in range(1, ws.max_column + 1)]
+
+        last_row = [ws.cell(row=ws.max_row, column=col).value for col in range(1, ws.max_column + 1)]
+        model_name = sheet
+        expand_pixel = ""
+        for item in ["0p", "3p", "5p", "7p", "9p"]:
+            if item in sheet:
+                expand_pixel = item.replace("p", "")
+                break
+        clean_model_name = model_name.rsplit('_', 1)[0] if model_name.startswith('SAM_') else model_name
+        new_row = [clean_model_name, expand_pixel] + last_row[1:]
+        summary_data.append(new_row)
+
+    columns = ["模型名称", "框外扩（pixel）"] + ref_columns[1:]
+    summary_df = pd.DataFrame(summary_data, columns=columns)
+
+    # 删除已存在的 Summary_Mean sheet（如果存在）
+    if "Summary_Mean" in wb.sheetnames:
+        std = wb["Summary_Mean"]
+        wb.remove(std)
+    new_sheet = wb.create_sheet(title="Summary_Mean", index=0)
+
+    # 设置列宽按最宽字符计算，标题加粗居中
+    col_max_widths = [len(str(col)) for col in summary_df.columns]
+    for row in summary_df.values:
+        for idx, val in enumerate(row):
+            val_len = len(str(val)) if val is not None else 0
+            if val_len > col_max_widths[idx]:
+                col_max_widths[idx] = val_len
+
+    for i, col in enumerate(summary_df.columns):
+        col_letter = get_column_letter(i+1)
+        width = min(col_max_widths[i] + 2, 35)
+        new_sheet.column_dimensions[col_letter].width = width
+        cell = new_sheet.cell(row=1, column=i+1, value=col)
+        cell.alignment = Alignment(horizontal='center', vertical='center')
+        cell.font = Font(bold=True)
+
+    # 写入数据并居中
+    for row_idx in range(2, len(summary_df) + 2):
+        for col_idx in range(1, len(summary_df.columns) + 1):
+            cell = new_sheet.cell(row=row_idx, column=col_idx, value=summary_df.iat[row_idx - 2, col_idx - 1])
+            cell.alignment = Alignment(horizontal='center', vertical='center')
+
+    # 合并模型名称相同的单元格
+    summary_ws = wb["Summary_Mean"]
+    current_model = None
+    start_row = 2
+    for row in range(2, summary_ws.max_row + 2):
+        model_cell = summary_ws.cell(row=row, column=1)
+        model_value = model_cell.value
+        if model_value != current_model:
+            if current_model is not None and row - start_row > 1:
+                summary_ws.merge_cells(start_row=start_row, start_column=1, end_row=row - 1, end_column=1)
+                summary_ws.cell(row=start_row, column=1).alignment = Alignment(horizontal='center', vertical='center')
+            current_model = model_value
+            start_row = row
+    if current_model is not None and summary_ws.max_row - start_row >= 1:
+        summary_ws.merge_cells(start_row=start_row, start_column=1, end_row=summary_ws.max_row, end_column=1)
+        summary_ws.cell(row=start_row, column=1).alignment = Alignment(horizontal='center', vertical='center')
+
+    wb.save(output_excel)
+
+
 if __name__ == "__main__":
     # GT文件目录
-    gtDir = r'C:\Users\dell\Desktop\20250711\nnUNet\Dataset001_GTVp\labelsTs'
+    gtDir = r'C:\Users\dell\Desktop\CTV\nnUNet\Dataset004_CTVgtv\labelsTs'
     # excel文件保存地址
-    excel_path = r'C:\Users\dell\Desktop/2D_eval.xlsx'
+    excel_path = r'C:\Users\dell\Desktop/eval_2D.xlsx'
+
     # 模型及其预测路径配置
+    base_name = "TrainAll_pseudoRGB"
     model_paths = {
-        # "nnUNet_3d": r'C:\Users\dell\Desktop\testresults\nnUNet_3d',
-        "SAM_trainall_pseudorgb_0p": r'C:\Users\dell\Desktop\testresults\TrainAll_pseudoRGB/expand_0p',
-        "SAM_trainall_pseudorgb_3p": r'C:\Users\dell\Desktop\testresults\TrainAll_pseudoRGB/expand_3p',
-        "SAM_trainall_pseudorgb_5p": r'C:\Users\dell\Desktop\testresults\TrainAll_pseudoRGB/expand_5p',
-        "SAM_trainall_pseudorgb_7p": r'C:\Users\dell\Desktop\testresults\TrainAll_pseudoRGB/expand_7p',
-        "SAM_trainall_pseudorgb_9p": r'C:\Users\dell\Desktop\testresults\TrainAll_pseudoRGB/expand_9p'
+        "nnUNet_CTVgtv_2d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTVgtv_2d',
+        # "nnUNet_2.5d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_2.5d'
+        "nnUNet_CTVgtv_3d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTVgtv_3d'
+        # f"SAM_{base_name}_0p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_0p',
+        # f"SAM_{base_name}_3p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_3p',
+        # f"SAM_{base_name}_5p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_5p',
+        # f"SAM_{base_name}_7p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_7p',
+        # f"SAM_{base_name}_9p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_9p'
     }
     # 依次写入每个模型评估结果
     for model_name, predDir in model_paths.items():
         evaluate_model_to_excel(gtDir, predDir, model_name, excel_path)
 
     print(f"\n 所有模型评估完成，结果保存在：{excel_path}")
+
+    # 汇总平均值
+    generate_summary_mean_sheet(excel_path)
 
 

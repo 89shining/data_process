@@ -120,11 +120,11 @@ def GenerateNIICSV(rootdir, ctdir, maskdir, trainfile):
     fqingxi.close()
 
 if __name__ == "__main__":
-    srcdir = 'C:/Users/dell/Desktop/20250711/datanii/test_nii'  # nii.gz主目录
-    rootdir = 'C:/Users/dell/Desktop/20250711/dataset/test'   # dataset主目录
-    csv_path = 'C:/Users/dell/Desktop/20250711/dataset/test/test_nii.csv'  # 保存csv地址
-    imadir = 'C:/Users/dell/Desktop/20250711/dataset/test/images'   # image.nii保存地址
-    maskdir = 'C:/Users/dell/Desktop/20250711/dataset/test/masks'
+    srcdir = 'C:/Users/dell/Desktop/CTV/datanii/train_nii'  # nii.gz主目录
+    rootdir = 'C:/Users/dell/Desktop/CTV/dataset/train'   # dataset主目录
+    csv_path = 'C:/Users/dell/Desktop/CTV/dataset/train/train_nii.csv'  # 保存csv地址
+    imadir = 'C:/Users/dell/Desktop/CTV/dataset/train/images'   # image.nii保存地址
+    maskdir = 'C:/Users/dell/Desktop/CTV/dataset/train/masks'
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
@@ -136,7 +136,7 @@ if __name__ == "__main__":
 
         # 读取 image 和 mask
         ctfile = os.path.join(padir, 'image.nii.gz')
-        maskfile = os.path.join(padir, 'GTVp.nii.gz')
+        maskfile = os.path.join(padir, 'CTV.nii.gz')
         ct_img = sitk.ReadImage(ctfile)
         mask_img = sitk.ReadImage(maskfile)
 
