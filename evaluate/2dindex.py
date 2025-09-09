@@ -187,21 +187,21 @@ def generate_summary_mean_sheet(output_excel):
 
 if __name__ == "__main__":
     # GT文件目录
-    gtDir = r'C:\Users\WS\Desktop\20250809\nnUNet\Dataset001_GTVp\labelsTs'
+    gtDir = r'C:\Users\dell\Desktop\CTV\nnUNet\Dataset003_CTV\labelsTs'
     # excel文件保存地址
-    excel_path = r'C:\Users\WS\Desktop/eval_2D.xlsx'
+    excel_path = r'C:\Users\dell\Desktop/CTV/eval_2D.xlsx'
 
     # 模型及其预测路径配置
-    base_name = "TrainAll_pseudoRGB"
+    base_name = "Freeze_image_encoder"
     model_paths = {
-        # "nnUNet_2d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_2d',
+        "nnUNet_2d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTV_2d',
         # "nnUNet_2.5d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_2.5d'
-        # "nnUNet_3d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_3d'
-        # f"SAM_{base_name}_0p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_0p',
-        # f"SAM_{base_name}_3p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_3p',
-        # f"SAM_{base_name}_5p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_5p',
-        # f"SAM_{base_name}_7p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_7p',
-        # f"SAM_{base_name}_9p": fr'C:\Users\WS\Desktop\20250809\testresults\{base_name}/expand_9p'
+        "nnUNet_3d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTV_3d',
+        f"SAM_{base_name}_0p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_0p',
+        f"SAM_{base_name}_3p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_3p',
+        f"SAM_{base_name}_5p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_5p',
+        f"SAM_{base_name}_7p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_7p',
+        f"SAM_{base_name}_9p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_9p'
     }
     # 依次写入每个模型评估结果
     for model_name, predDir in model_paths.items():

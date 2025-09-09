@@ -75,12 +75,32 @@ import nibabel as nib
 """
 检查文件大小
 """
-import os
-import pandas as pd
+# import os
+# import pandas as pd
+#
+# csv_path = "C:/Users/dell/Desktop/20250604/dataset/train/train_rgb_dataset.csv"
+# root_dir = "C:/Users/dell/Desktop/20250604/dataset/train"   # images目录
+#
+# df = pd.read_csv(csv_path, header=None, names=["image", "mask"])
+# sizes = [os.path.getsize(os.path.join(root_dir, path.strip("/"))) for path in df["image"]]
+# print(f"Average size: {sum(sizes)/len(sizes)/1024:.2f} KB")
 
-csv_path = "C:/Users/dell/Desktop/20250604/dataset/train/train_rgb_dataset.csv"
-root_dir = "C:/Users/dell/Desktop/20250604/dataset/train"   # images目录
 
-df = pd.read_csv(csv_path, header=None, names=["image", "mask"])
-sizes = [os.path.getsize(os.path.join(root_dir, path.strip("/"))) for path in df["image"]]
-print(f"Average size: {sum(sizes)/len(sizes)/1024:.2f} KB")
+"""
+查看z方向大小与头脚关系
+"""
+import SimpleITK as sitk
+
+nii_path = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii\test_nii/p_1/image.nii.gz"  # 修改为你的路径
+img = sitk.ReadImage(nii_path)
+arr = sitk.GetArrayFromImage(img)
+
+size = arr.shape[0]  # Z 轴方向的层数
+
+print(f"图像总共有 {size} 层 (Z)")
+
+# 验证前几层的物理 z 坐标
+for z_index in [0, size // 2, size - 1]:
+    # 注意 SimpleITK 的 TransformIndexToPhysicalPoint 用的是 (x, y, z)
+    physical_z = img.TransformIndexToPhysicalPoint((0, 0, z_index))[2]
+    print(f"z_index={z_index} → 物理z坐标: {physical_z:.2f}")

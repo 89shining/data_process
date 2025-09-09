@@ -9,7 +9,7 @@ from PIL import Image
 import SimpleITK as sitk
 
 
-# 计算单层mask的长宽，以及最大最小的xy坐标点
+# 计算单层mask的长宽，以及最大最小的xy坐标点，中心点坐标
 def get_width_height(mask_np, spacing_x, spacing_y):
     y_indices, x_indices = np.where(mask_np > 0)
     if len(x_indices) == 0 or len(y_indices) == 0:
@@ -19,15 +19,23 @@ def get_width_height(mask_np, spacing_x, spacing_y):
     y_min = np.min(y_indices)
     y_max = np.max(y_indices)
 
+    x_mid_pixel = (x_min + x_max) / 2.0
+    y_mid_pixel = (y_min + y_max) / 2.0
+
+    x_mid_mm = x_mid_pixel * spacing_x
+    y_mid_mm = y_mid_pixel * spacing_y
+
     width_pixel = x_max - x_min + 1
     height_pixel= y_max - y_min + 1
+
     width_mm = width_pixel * spacing_x
     height_mm = height_pixel * spacing_y
-    return width_mm, height_mm, x_min, x_max, y_min, y_max
+
+    return width_mm, height_mm, x_min, x_max, y_min, y_max, x_mid_mm, y_mid_mm
 
 if __name__ == "__main__":
     mask_dir = "C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250515/Dataset/train/masks"  # mask.png目录
-    nii_dir = "C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250515/datanii/traindatanii" # nii数据文件夹
+    nii_dir = "C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250515/datanii/traindatanii" # nii数据文件夹 nii.gz
     output_path = "C:/Users/dell/Desktop/slice_info.csv"
 
     info = []
