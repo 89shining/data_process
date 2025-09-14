@@ -196,26 +196,30 @@ def generate_summary_mean_sheet(output_excel):
 
 # ====== 调用入口 ======
 if __name__ == '__main__':
-    gt_dir = r"C:\Users\dell\Desktop\CTV\nnUNet\Dataset003_CTV\labelsTs"
+    gt_dir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
     # gt_dir = r"C:\\Users\\WS\\Desktop\\20250809\\nnUNet\\Dataset002_RGB\\labelsTs"
-    output_excel = r"C:\Users\dell\Desktop\CTV/eval_3d.xlsx"
+    output_excel = r"C:\Users\WS\Desktop/eval_3d.xlsx"
 
-    # nnunet评估输出
-    pred_dir1 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_2d"
-    evaluate_prediction(gt_dir, pred_dir1, "nnUNet_2d", output_excel)
+    # # nnunet评估输出
+    # pred_dir1 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_2d"
+    # evaluate_prediction(gt_dir, pred_dir1, "nnUNet_2d", output_excel)
 
-    pred_dir2 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_3d"
-    evaluate_prediction(gt_dir, pred_dir2, "nnUNet_3d", output_excel)
+    # pred_dir2 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_3d"
+    # evaluate_prediction(gt_dir, pred_dir2, "nnUNet_3d", output_excel)
+    #
+    # # SAM评估
+    # base_name = "Freeze_image_encoder"
+    # base_dir = fr"C:\\Users\\dell\\Desktop\\CTV\\testresults\\{base_name}"
+    # postfixes = ["0p", "3p", "5p", "7p", "9p"]
 
-    # SAM评估
-    base_name = "Freeze_image_encoder"
-    base_dir = fr"C:\\Users\\dell\\Desktop\\CTV\\testresults\\{base_name}"
-    postfixes = ["0p", "3p", "5p", "7p", "9p"]
+    # for p in postfixes:
+    #     pred_dir = os.path.join(base_dir, f"expand_{p}")
+    #     sheet_name = f"SAM_{base_name.lower()}_{p}"
+    #     evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel)
 
-    for p in postfixes:
-        pred_dir = os.path.join(base_dir, f"expand_{p}")
-        sheet_name = f"SAM_{base_name.lower()}_{p}"
-        evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel)
+    # SAM 稀疏提示评估输出
+    pred_dir1 = r"C:\Users\WS\Desktop\three_prompt\expand_0.5cm"
+    evaluate_prediction(gt_dir, pred_dir1, "SAM", output_excel)
 
     # 汇总平均值
     generate_summary_mean_sheet(output_excel)
