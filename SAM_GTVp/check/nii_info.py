@@ -89,18 +89,43 @@ import nibabel as nib
 """
 查看z方向大小与头脚关系
 """
+# import SimpleITK as sitk
+#
+# nii_path = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii\test_nii/p_1/image.nii.gz"  # 修改为你的路径
+# img = sitk.ReadImage(nii_path)
+# arr = sitk.GetArrayFromImage(img)
+#
+# size = arr.shape[0]  # Z 轴方向的层数
+#
+# print(f"图像总共有 {size} 层 (Z)")
+#
+# # 验证前几层的物理 z 坐标
+# for z_index in [0, size // 2, size - 1]:
+#     # 注意 SimpleITK 的 TransformIndexToPhysicalPoint 用的是 (x, y, z)
+#     physical_z = img.TransformIndexToPhysicalPoint((0, 0, z_index))[2]
+#     print(f"z_index={z_index} → 物理z坐标: {physical_z:.2f}")
+
+"""
+查看spacing值
+"""
+import os
 import SimpleITK as sitk
 
-nii_path = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii\test_nii/p_1/image.nii.gz"  # 修改为你的路径
-img = sitk.ReadImage(nii_path)
-arr = sitk.GetArrayFromImage(img)
+# 设置总文件夹路径
+root_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii\test_nii"  # 替换为你的实际路径
 
-size = arr.shape[0]  # Z 轴方向的层数
+# 遍历每个患者子文件夹
+for patient_id in sorted(os.listdir(root_dir)):
+    patient_path = os.path.join(root_dir, patient_id)
+    image_path = os.path.join(patient_path, "GTVp.nii.gz")
 
-print(f"图像总共有 {size} 层 (Z)")
-
-# 验证前几层的物理 z 坐标
-for z_index in [0, size // 2, size - 1]:
-    # 注意 SimpleITK 的 TransformIndexToPhysicalPoint 用的是 (x, y, z)
-    physical_z = img.TransformIndexToPhysicalPoint((0, 0, z_index))[2]
-    print(f"z_index={z_index} → 物理z坐标: {physical_z:.2f}")
+    if os.path.isfile(image_path):
+        try:
+            # 读取图像
+            image = sitk.ReadImage(image_path)
+            spacing = image.GetSpacing()  # (Z, Y, X)
+            print(f"{patient_id}: Spacing (Z, Y, X) = {spacing}")
+        except Exception as e:
+            print(f"{patient_id}: 读取失败 - {e}")
+    else:
+        print(f"{patient_id}: 未找到 image.nii.gz")
