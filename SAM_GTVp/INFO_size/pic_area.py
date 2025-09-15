@@ -4,8 +4,8 @@ import os
 import numpy as np
 
 # 文件路径
-excel_path = 'C:/Users/dell/Desktop/slice_area_map.xlsx'
-save_dir = 'C:/Users/dell/Desktop/plots_fixed'  # 输出文件夹
+excel_path = 'C:/Users/dell/Desktop/train_slice_area_map.xlsx'
+save_dir = 'C:/Users/dell/Desktop/train_plots'  # 输出文件夹
 os.makedirs(save_dir, exist_ok=True)
 
 # 读取 Excel（无表头，按实际内容处理）

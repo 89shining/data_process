@@ -166,9 +166,9 @@ def write_area_table(patient_ids, area_dicts, output_path):
 
 
 if __name__ == "__main__":
-    nii_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii\test_nii" # nii数据文件夹 nii.gz
-    output_path = r"C:/Users/dell/Desktop/slice_info.xlsx"
-    area_output_path = r"C:/Users/dell/Desktop/slice_area_map.xlsx"
+    nii_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii\train_nii" # nii数据文件夹 nii.gz
+    output_path = r"C:/Users/dell/Desktop/train_slice_info.xlsx"
+    area_output_path = r"C:/Users/dell/Desktop/train_slice_area_map.xlsx"
 
     patient_ids = []
     data_rows = []
