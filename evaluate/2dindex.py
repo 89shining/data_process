@@ -189,31 +189,31 @@ if __name__ == "__main__":
     # GT文件目录
     gtDir = r'C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs'
     # excel文件保存地址
-    excel_path = r'C:\Users\dell\Desktop/cm/eval_2D.xlsx'
+    excel_path = r"C:\Users\dell\Desktop/three_prompt/expand_0.5cm_thirdarea_vis/eval_2d_thirdarea.xlsx"
 
     # 模型及其预测路径配置
     base_name = "TrainAll"
-    # # 外扩pixel
-    # model_paths = {
-    #     # "nnUNet_2d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTV_2d',
-    #     # # "nnUNet_2.5d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_2.5d'
-    #     # "nnUNet_3d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTV_3d',
-    #     f"SAM_{base_name}_0p": fr'C:\Users\dell\Desktop\cm\testresults\{base_name}/expand_0p',
-    #     f"SAM_{base_name}_3p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_3p',
-    #     f"SAM_{base_name}_5p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_5p',
-    #     f"SAM_{base_name}_7p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_7p',
-    #     f"SAM_{base_name}_9p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_9p',
-    #     # "SAM": r"C:\Users\dell\Desktop\three_prompt/expand_0.5cm"
-    # }
+    # 外扩pixel
+    model_paths = {
+        # "nnUNet_2d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTV_2d',
+        # # "nnUNet_2.5d": r'C:\Users\WS\Desktop\20250809\testresults\nnUNet_2.5d'
+        # "nnUNet_3d": r'C:\Users\dell\Desktop\CTV\testresults\nnUNet_CTV_3d',
+        # f"SAM_{base_name}_0p": fr'C:\Users\dell\Desktop\cm\testresults\{base_name}/expand_0p',
+        # f"SAM_{base_name}_3p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_3p',
+        # f"SAM_{base_name}_5p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_5p',
+        # f"SAM_{base_name}_7p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_7p',
+        # f"SAM_{base_name}_9p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_9p',
+        "SAM": r"C:\Users\dell\Desktop\three_prompt/expand_0.5cm_thirdarea_vis"
+    }
 
-    # 外扩 cm 设置
-    base_cm_list = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
-    model_paths = {}
-    for cm in base_cm_list:
-        cm_str = str(cm)
-        model_name = f"SAM_{base_name}_{cm_str}cm"
-        predDir = fr'C:\Users\dell\Desktop\cm\{base_name}\expand_{cm}cm'
-        model_paths[model_name] = predDir
+    # # 外扩 cm 设置
+    # base_cm_list = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
+    # model_paths = {}
+    # for cm in base_cm_list:
+    #     cm_str = str(cm)
+    #     model_name = f"SAM_{base_name}_{cm_str}cm"
+    #     predDir = fr'C:\Users\dell\Desktop\cm\{base_name}\expand_{cm}cm'
+    #     model_paths[model_name] = predDir
 
     # 依次写入每个模型评估结果
     for model_name, predDir in model_paths.items():

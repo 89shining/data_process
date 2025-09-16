@@ -198,7 +198,7 @@ def generate_summary_mean_sheet(output_excel):
 if __name__ == '__main__':
     gt_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
     # gt_dir = r"C:\\Users\\WS\\Desktop\\20250809\\nnUNet\\Dataset002_RGB\\labelsTs"
-    output_excel = r"C:\Users\dell\Desktop/cm/eval_3d.xlsx"
+    output_excel = r"C:\Users\dell\Desktop/three_prompt/expand_0.5cm_thirdarea_vis/eval_3d_thirdarea.xlsx"
 
     # # nnunet评估输出
     # pred_dir1 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_2d"
@@ -207,20 +207,20 @@ if __name__ == '__main__':
     # pred_dir2 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_3d"
     # evaluate_prediction(gt_dir, pred_dir2, "nnUNet_3d", output_excel)
 
-    # SAM评估
-    base_name = "TrainAll"
-    base_dir = fr"C:\Users\dell\Desktop\cm\{base_name}"
-    expand_cm_list = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
+    # # SAM评估
+    # base_name = "TrainAll"
+    # base_dir = fr"C:\Users\dell\Desktop\cm\{base_name}"
+    # expand_cm_list = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
+    #
+    # for cm in expand_cm_list:
+    #     cm_str = str(cm)
+    #     pred_dir = os.path.join(base_dir, f"expand_{cm}cm")  # 文件夹是真实 cm 名字
+    #     sheet_name = f"SAM_{base_name}_{cm_str}cm"
+    #     evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel)
 
-    for cm in expand_cm_list:
-        cm_str = str(cm)
-        pred_dir = os.path.join(base_dir, f"expand_{cm}cm")  # 文件夹是真实 cm 名字
-        sheet_name = f"SAM_{base_name}_{cm_str}cm"
-        evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel)
-
-    # # SAM 稀疏提示评估输出
-    # pred_dir1 = r"C:\Users\dell\Desktop\three_prompt/expand_0.5cm"
-    # evaluate_prediction(gt_dir, pred_dir1, "SAM", output_excel)
+    # SAM 稀疏提示评估输出
+    pred_dir1 = r"C:\Users\dell\Desktop\three_prompt/expand_0.5cm_thirdarea_vis"
+    evaluate_prediction(gt_dir, pred_dir1, "SAM", output_excel)
 
     # 汇总平均值
     generate_summary_mean_sheet(output_excel)
