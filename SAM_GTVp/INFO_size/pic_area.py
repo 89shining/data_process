@@ -1,5 +1,5 @@
 """
-统计每个患者mask切片的area 图
+统计绘制每个患者mask切片的area 图
 """
 import pandas as pd
 import matplotlib.pyplot as plt

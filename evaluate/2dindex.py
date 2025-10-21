@@ -189,7 +189,7 @@ if __name__ == "__main__":
     # GT文件目录
     gtDir = r'C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs'
     # excel文件保存地址
-    excel_path = r"C:\Users\dell\Desktop/three_prompt/expand_0.5cm_thirdarea_vis/eval_2d_thirdarea.xlsx"
+    excel_path = r"C:\Users\dell\Desktop/three_prompt/expand_0.5cm_top_bottom_vis/eval_2d_top_bottom.xlsx"
 
     # 模型及其预测路径配置
     base_name = "TrainAll"
@@ -203,7 +203,7 @@ if __name__ == "__main__":
         # f"SAM_{base_name}_5p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_5p',
         # f"SAM_{base_name}_7p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_7p',
         # f"SAM_{base_name}_9p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_9p',
-        "SAM": r"C:\Users\dell\Desktop\three_prompt/expand_0.5cm_thirdarea_vis"
+        "SAM": r"C:\Users\dell\Desktop\three_prompt/expand_0.5cm_top_bottom_vis"
     }
 
     # # 外扩 cm 设置

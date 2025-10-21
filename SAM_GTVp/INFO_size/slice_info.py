@@ -31,11 +31,11 @@ def get_width_height(mask_np, spacing_x, spacing_y):
     width_mm = width_pixel * spacing_x
     height_mm = height_pixel * spacing_y
 
-    return width_mm, height_mm, x_min, x_max, y_min, y_max, x_mid_mm, y_mid_mm
+    return width_mm, height_mm, x_min, x_max, y_min, y_max
 
 if __name__ == "__main__":
-    mask_dir = "C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250515/Dataset/train/masks"  # mask.png目录
-    nii_dir = "C:/Users/dell/Desktop/SAM/GTVp_CTonly/20250515/datanii/traindatanii" # nii数据文件夹 nii.gz
+    mask_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\dataset\test\masks"  # mask.png目录
+    nii_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii/test_nii" # nii数据文件夹 nii.gz
     output_path = "C:/Users/dell/Desktop/slice_info.csv"
 
     info = []
@@ -65,11 +65,12 @@ if __name__ == "__main__":
         y_min_full, y_max_full = np.min(ys), np.max(ys)
 
         for i in sorted(os.listdir(pa_mask_dir), key=lambda x: int(os.path.splitext(x)[0])):
-            if not i.endswith(".png"):
+            if not i.endswith(".nii"):
                 continue
             mask_path = os.path.join(pa_mask_dir, i)
-            mask = Image.open(mask_path).convert("L")
-            mask_np = (np.array(mask) > 0).astype(np.uint8)
+            mask_img = sitk.ReadImage(mask_path)
+            mask_np = sitk.GetArrayFromImage(mask_img)
+            mask_np = (mask_np > 0).astype(np.uint8)
             # 计算单层的mask面积
             area_pixel = np.sum(mask_np > 0)
             area_mm2 = area_pixel * spacing_x * spacing_y
