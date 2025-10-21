@@ -70,7 +70,7 @@ def evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel):
             records.append([case_id] + [""] * 13)
 
     columns = [
-        "ID", "Dice", "HD95 (mm)", "IoU",
+        "ID", "3d Dice", "3d HD95 (mm)", "IoU",
         "Sensitivity (%)", "Specificity (%)",
         "Precision (%)", "Accuracy (%)",
         "TP (vox)", "TN (vox)", "FP (vox)", "FN (vox)",
@@ -196,9 +196,9 @@ def generate_summary_mean_sheet(output_excel):
 
 # ====== 调用入口 ======
 if __name__ == '__main__':
-    gt_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
+    gt_dir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
     # gt_dir = r"C:\\Users\\WS\\Desktop\\20250809\\nnUNet\\Dataset002_RGB\\labelsTs"
-    output_excel = r"C:\Users\dell\Desktop/three_prompt/expand_0.5cm_top_bottom_vis/eval_3d_top_bottom.xlsx"
+    output_excel = r"C:\Users\WS\Desktop/Num_box_prompts/eval_3d.xlsx"
 
     # # nnunet评估输出
     # pred_dir1 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_2d"
@@ -219,8 +219,8 @@ if __name__ == '__main__':
     #     evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel)
 
     # SAM 稀疏提示评估输出
-    pred_dir1 = r"C:\Users\dell\Desktop\three_prompt/expand_0.5cm_top_bottom_vis"
-    evaluate_prediction(gt_dir, pred_dir1, "SAM", output_excel)
+    pred_dir1 = r"C:\Users\WS\Desktop\Num_box_prompts\prompt_5_vis"
+    evaluate_prediction(gt_dir, pred_dir1, "SAM_5slices", output_excel)
 
     # 汇总平均值
     generate_summary_mean_sheet(output_excel)
