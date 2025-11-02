@@ -198,7 +198,7 @@ def generate_summary_mean_sheet(output_excel):
 if __name__ == '__main__':
     gt_dir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
     # gt_dir = r"C:\\Users\\WS\\Desktop\\20250809\\nnUNet\\Dataset002_RGB\\labelsTs"
-    output_excel = r"C:\Users\WS\Desktop/Num_box_prompts/eval_3d.xlsx"
+    output_excel = r"C:\Users\WS\Desktop/Num_box_prompts/eval_3d_7.xlsx"
 
     # # nnunet评估输出
     # pred_dir1 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_2d"
@@ -219,8 +219,11 @@ if __name__ == '__main__':
     #     evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel)
 
     # SAM 稀疏提示评估输出
-    pred_dir1 = r"C:\Users\WS\Desktop\Num_box_prompts\prompt_5_vis"
-    evaluate_prediction(gt_dir, pred_dir1, "SAM_5slices", output_excel)
+    pred_dir1 = r"C:\Users\WS\Desktop\Num_box_prompts\prompt_7_vis"
+    evaluate_prediction(gt_dir, pred_dir1, "SAM_7slices", output_excel)
+
+    # pred_dir2 = r"C:\Users\WS\Desktop\Pos_box_prompts\mid_volume"
+    # evaluate_prediction(gt_dir, pred_dir1, "SAM_mid_volume", output_excel)
 
     # 汇总平均值
     generate_summary_mean_sheet(output_excel)

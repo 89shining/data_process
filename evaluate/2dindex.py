@@ -189,7 +189,7 @@ if __name__ == "__main__":
     # GT文件目录
     gtDir = r'D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs'
     # excel文件保存地址
-    excel_path = r"C:\Users\WS\Desktop/Num_box_prompts/eval_2d.xlsx"
+    excel_path = r"C:\Users\WS\Desktop/Num_box_prompts/eval_2d-7.xlsx"
 
     # 模型及其预测路径配置
     base_name = "TrainAll"
@@ -203,7 +203,8 @@ if __name__ == "__main__":
         # f"SAM_{base_name}_5p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_5p',
         # f"SAM_{base_name}_7p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_7p',
         # f"SAM_{base_name}_9p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_9p',
-        "SAM_5slices": r"C:\Users\WS\Desktop\Num_box_prompts\prompt_5_vis"
+        # "SAM_max_area": r"C:\Users\WS\Desktop\Pos_box_prompts\max_area",
+        "SAM_7slices": r"C:\Users\WS\Desktop\Num_box_prompts\prompt_7_vis"
     }
 
     # # 外扩 cm 设置
