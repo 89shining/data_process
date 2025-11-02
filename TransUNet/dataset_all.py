@@ -95,7 +95,7 @@ def process_case(pid_path, is_train=True):
             names.append(save_name.replace(".npz", ""))
 
     else:
-        save_name = f"{pid}.h5"
+        save_name = f"{pid}.npy.h5"
         save_path = os.path.join(test_vol_dir, save_name)
         save_h5(img_arr, label_arr, save_path)
         names.append(pid)
