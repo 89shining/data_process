@@ -187,9 +187,9 @@ def generate_summary_mean_sheet(output_excel):
 
 if __name__ == "__main__":
     # GT文件目录
-    gtDir = r'D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs'
+    gtDir = r'C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs'
     # excel文件保存地址
-    excel_path = r"C:\Users\WS\Desktop/Num_box_prompts/eval_2d-7.xlsx"
+    excel_path = r"C:\Users\dell\Desktop/Pos_eval_2d.xlsx"
 
     # 模型及其预测路径配置
     base_name = "TrainAll"
@@ -204,7 +204,13 @@ if __name__ == "__main__":
         # f"SAM_{base_name}_7p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_7p',
         # f"SAM_{base_name}_9p": fr'C:\Users\dell\Desktop\CTV\testresults\{base_name}/expand_9p',
         # "SAM_max_area": r"C:\Users\WS\Desktop\Pos_box_prompts\max_area",
-        "SAM_7slices": r"C:\Users\WS\Desktop\Num_box_prompts\prompt_7_vis"
+        "area": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\max_area\expand_0.5cm_vis",
+        "volume": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\mid_volume\expand_0.5cm_vis",
+        "random": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\random\expand_0.5cm_vis",
+        "z": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Num_box_prompts\prompt_3_vis",
+        # "all_slices": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\cm\testresults\Freeze_image_encoder\expand_0.5cm",
+        # "Deeplabv3+": r"C:\Users\dell\Desktop\deeplabv3+",
+        # "TransUNet": r"C:\Users\dell\Desktop\TransUNet",
     }
 
     # # 外扩 cm 设置

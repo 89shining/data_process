@@ -196,9 +196,9 @@ def generate_summary_mean_sheet(output_excel):
 
 # ====== 调用入口 ======
 if __name__ == '__main__':
-    gt_dir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
+    gt_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
     # gt_dir = r"C:\\Users\\WS\\Desktop\\20250809\\nnUNet\\Dataset002_RGB\\labelsTs"
-    output_excel = r"C:\Users\WS\Desktop/Num_box_prompts/eval_3d_7.xlsx"
+    output_excel = r"C:\Users\dell\Desktop/Pos_eval_3d.xlsx"
 
     # # nnunet评估输出
     # pred_dir1 = r"C:\\Users\\dell\\Desktop\\CTV\\testresults\\nnUNet_CTV_2d"
@@ -218,12 +218,32 @@ if __name__ == '__main__':
     #     sheet_name = f"SAM_{base_name}_{cm_str}cm"
     #     evaluate_prediction(gt_dir, pred_dir, sheet_name, output_excel)
 
-    # SAM 稀疏提示评估输出
-    pred_dir1 = r"C:\Users\WS\Desktop\Num_box_prompts\prompt_7_vis"
-    evaluate_prediction(gt_dir, pred_dir1, "SAM_7slices", output_excel)
+    # # SAM 稀疏提示评估输出
+    # pred_dir1 = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\max_area\expand_0.5cm_vis"
+    # evaluate_prediction(gt_dir, pred_dir1, "area", output_excel)
 
-    # pred_dir2 = r"C:\Users\WS\Desktop\Pos_box_prompts\mid_volume"
-    # evaluate_prediction(gt_dir, pred_dir1, "SAM_mid_volume", output_excel)
+    pred_dir2 = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\mid_volume\expand_0.5cm_vis"
+    evaluate_prediction(gt_dir, pred_dir2, "volume", output_excel)
+
+    pred_dir3 = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\random\expand_0.5cm_vis"
+    evaluate_prediction(gt_dir, pred_dir3, "random", output_excel)
+
+    pred_dir4 = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Num_box_prompts\prompt_3_vis"
+    evaluate_prediction(gt_dir, pred_dir4, "z", output_excel)
+
+    # pred_dir5 = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\cm\testresults\Freeze_image_encoder\expand_0.5cm"
+    # evaluate_prediction(gt_dir, pred_dir5, "all_slices", output_excel)
+
+    # pred_dir2 = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pum_box_prompts/prompt_3_vis"
+    # evaluate_prediction(gt_dir, pred_dir2, "SAM_mid_z", output_excel)
+
+    # # Deeplabv3+ 稀疏提示评估输出
+    # pred_dir1 = r"C:\Users\dell\Desktop\deeplabv3+"
+    # evaluate_prediction(gt_dir, pred_dir1, "Deeplabv3+", output_excel)
+
+    # # TransUNet 稀疏提示评估输出
+    # pred_dir2 = r"C:\Users\dell\Desktop\TransUNet"
+    # evaluate_prediction(gt_dir, pred_dir2, "TransUNet", output_excel)
 
     # 汇总平均值
     generate_summary_mean_sheet(output_excel)

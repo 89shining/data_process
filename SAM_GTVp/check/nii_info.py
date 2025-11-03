@@ -105,27 +105,55 @@ import nibabel as nib
 #     physical_z = img.TransformIndexToPhysicalPoint((0, 0, z_index))[2]
 #     print(f"z_index={z_index} → 物理z坐标: {physical_z:.2f}")
 
+# """
+# 批量查看spacing值
+# """
+# import os
+# import SimpleITK as sitk
+#
+# # 设置总文件夹路径
+# root_dir = r"C:\Users\dell\Desktop\example\newct\4RT_2351324_C1"  # 替换为你的实际路径
+#
+# # 遍历每个患者子文件夹
+# for patient_id in sorted(os.listdir(root_dir)):
+#     patient_path = os.path.join(root_dir, patient_id)
+#     image_path = os.path.join(patient_path, "GTVp.nii.gz")
+#
+#     if os.path.isfile(image_path):
+#         try:
+#             # 读取图像
+#             image = sitk.ReadImage(image_path)
+#             spacing = image.GetSpacing()  # (Z, Y, X)
+#             print(f"{patient_id}: Spacing (Z, Y, X) = {spacing}")
+#         except Exception as e:
+#             print(f"{patient_id}: 读取失败 - {e}")
+#     else:
+#         print(f"{patient_id}: 未找到 image.nii.gz")
+
 """
-查看spacing值
+批量查看spacing值
 """
 import os
 import SimpleITK as sitk
+import glob
 
 # 设置总文件夹路径
-root_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\datanii\test_nii"  # 替换为你的实际路径
+root_dir = r"C:\Users\dell\Desktop\example\newct"  # 替换为你的实际路径
 
 # 遍历每个患者子文件夹
 for patient_id in sorted(os.listdir(root_dir)):
     patient_path = os.path.join(root_dir, patient_id)
-    image_path = os.path.join(patient_path, "GTVp.nii.gz")
+    ii_files = glob.glob(os.path.join(patient_path, "*.nii.gz"))
 
-    if os.path.isfile(image_path):
-        try:
-            # 读取图像
-            image = sitk.ReadImage(image_path)
-            spacing = image.GetSpacing()  # (Z, Y, X)
-            print(f"{patient_id}: Spacing (Z, Y, X) = {spacing}")
-        except Exception as e:
-            print(f"{patient_id}: 读取失败 - {e}")
-    else:
-        print(f"{patient_id}: 未找到 image.nii.gz")
+    # 逐个读取
+    for nii_path in ii_files:
+        print(f"读取文件: {os.path.basename(nii_path)}")
+
+        # 示例：使用 nibabel 读取（或可改用 SimpleITK）
+        img = nib.load(nii_path)
+        data = img.get_fdata()
+        spacing = img.header.get_zooms()  # (x, y, z)
+        size = data.shape  # (x, y, z)
+
+        print(f"  ↳ spacing = {spacing}, size = {size}")
+
