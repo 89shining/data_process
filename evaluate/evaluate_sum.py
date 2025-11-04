@@ -1,5 +1,5 @@
 """
-2d
+2d：仅GT切片
 """
 
 import os
@@ -34,8 +34,12 @@ def ComputeDSC2D(gtDir, predDir):
     for i in range(predVolume.shape[0]):
         gtMat = (gtVolume[i] > 0).astype(np.uint8)
         predMat = (predVolume[i] > 0).astype(np.uint8)
-        if np.max(gtMat) == 0 or np.max(predMat) == 0:
+        # gt与pred均非空的切片
+        # if np.max(gtMat) == 0 or np.max(predMat) == 0:
+        # 仅gt切片
+        if np.max(gtMat) == 0 :
             continue
+
         dice += DiceCoefficient(predMat, gtMat)
         count += 1
     return round(dice / count, 2) if count > 0 else 0
@@ -50,7 +54,10 @@ def ComputeHD95(gtDir, predDir):
     for i in range(predVolume.shape[0]):
         gtMat = (gtVolume[i] > 0).astype(np.uint8)
         predMat = (predVolume[i] > 0).astype(np.uint8)
-        if np.max(gtMat) > 0 and np.max(predMat) > 0:
+        # gt与pred均非空的切片
+        # if np.max(gtMat) > 0 and np.max(predMat) > 0:
+        # 仅gt切片
+        if np.max(gtMat) > 0 :
             try:
                 hdcoeff = metric.binary.hd95(predMat, gtMat) * fColSpacing
                 hd_list.append(hdcoeff)
