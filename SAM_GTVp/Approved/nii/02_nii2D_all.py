@@ -1,9 +1,14 @@
 """
-提取2D切片，过滤空切片
+提取2D切片，保留全部切片
 nii.gz -> nii
 """
-import csv
 
+import os
+import sys
+sys.path.append("/home/wusi/segment-anything")
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import csv
 import pydicom
 import os
 import numpy as np
@@ -109,22 +114,22 @@ def GenerateNIICSV(rootdir, ctdir, maskdir, trainfile):
 
             ima =  sitk.ReadImage(maskfile)
             tmask = sitk.GetArrayFromImage(ima)  #  (H, W)
-            # 如果掩膜图像中存在有效的区域（即掩膜像素值大于 0），则将 CT 图像和掩膜的路径写入 CSV 文件
-            if np.max(tmask) > 0:
-                traininfo.append(ctfile.replace(rootdir, ''))   # 相对路径
-                # traininfo.append(ctfile)   # 绝对路径
-                traininfo.append(maskfile.replace(rootdir, ''))
-                # traininfo.append(maskfile)
-                csv_qingxi.writerow(traininfo)   # 写入CSV文件
+            # 将 CT 图像和掩膜的路径写入 CSV 文件
+            traininfo.append(ctfile.replace(rootdir, ''))   # 相对路径
+            # traininfo.append(ctfile)   # 绝对路径
+            traininfo.append(maskfile.replace(rootdir, ''))
+            # traininfo.append(maskfile)
+            csv_qingxi.writerow(traininfo)   # 写入CSV文件
 
     fqingxi.close()
 
 if __name__ == "__main__":
-    srcdir = 'C:/Users/WS/Desktop/add'  # nii.gz主目录
-    rootdir = 'C:/Users/WS/Desktop/dataset'   # dataset主目录
-    csv_path = 'C:/Users/WS/Desktop/dataset/p0_nii.csv'  # 保存csv地址
-    imadir = 'C:/Users/WS/Desktop/dataset/images'   # image.nii保存地址
-    maskdir = 'C:/Users/WS/Desktop/dataset/masks'
+    srcdir = '/home/wusi/SAMdata/20250711_GTVp/datanii/train_nii'  # nii.gz主目录
+    rootdir = '/home/wusi/SAMdata/20251104_GTVp/dataset/train'   # dataset主目录
+    csv_path = '/home/wusi/SAMdata/20251104_GTVp/dataset/train/train_nii.csv'  # 保存csv地址
+    imadir = '/home/wusi/SAMdata/20251104_GTVp/dataset/train/images'   # image.nii保存地址
+    maskdir = '/home/wusi/SAMdata/20251104_GTVp/dataset/train/masks'
+
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
@@ -153,8 +158,6 @@ if __name__ == "__main__":
         # 同步遍历 image 和 mask
         for ni in range(mask_data.shape[0]):
             mask_slice = mask_data[ni]
-            if np.max(mask_slice) == 0:
-                continue  # 跳过空掩膜及其图像
 
             ct_slice = ct_data[ni]
 
@@ -166,5 +169,5 @@ if __name__ == "__main__":
             mask_save_path = os.path.join(mask_dstdir, f"{ni}.nii")
             SaveMatNII(mask_slice, mask_img, mask_save_path)
 
-    # 生成 CSV（只记录非空掩膜）
+    # 生成 CSV
     GenerateNIICSV(rootdir, imadir, maskdir, csv_path)

@@ -290,15 +290,15 @@ def generate_summary_mean_sheet(output_excel):
 if __name__ == "__main__":
     gtDir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
 
-    # Num
-    output_excel = r"C:\Users\WS\Desktop\Num_eval.xlsx"
-    model_paths = {
-        "2slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_2_vis",
-        "3slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_3_vis",
-        "5slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_5_vis",
-        "7slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_7_vis",
-        "all_slices": r"C:\Users\WS\Desktop\Statistics\fix_cm\testresults\Freeze_image_encoder\expand_0.5cm",
-    }
+    # # Num
+    # output_excel = r"C:\Users\WS\Desktop\Num_eval.xlsx"
+    # model_paths = {
+    #     "2slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_2_vis",
+    #     "3slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_3_vis",
+    #     "5slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_5_vis",
+    #     "7slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_7_vis",
+    #     "all_slices": r"C:\Users\WS\Desktop\Statistics\fix_cm\testresults\Freeze_image_encoder\expand_0.5cm",
+    # }
 
     # # Pos
     # output_excel = r"C:\Users\WS\Desktop\Pos_eval.xlsx"
@@ -308,6 +308,17 @@ if __name__ == "__main__":
     #     "random": r"C:\Users\WS\Desktop\Statistics\Pos_box_prompts\random",
     #     "z": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_3_vis",
     # }
+
+    # Baseline
+    output_excel = r"C:\Users\WS\Desktop\Baseline_eval.xlsx"
+    model_paths = {
+        "nnUNet_2d": r"C:\Users\WS\Desktop\Statistics\nnUNet_2d",
+        "nnUNet_3d": r"C:\Users\WS\Desktop\Statistics\nnUNet_3d",
+        "UNet": r"C:\Users\WS\Desktop\Statistics\UNet",
+        "Deeplabv3+": r"C:\Users\WS\Desktop\Statistics\Deeplabv3+",
+        "TransUNet": r"C:\Users\WS\Desktop\Statistics\TransUNet",
+        "Att_UNet": r"C:\Users\WS\Desktop\Statistics\Att_UNet",
+    }
 
     for name, path in model_paths.items():
         evaluate_model_combined(gtDir, path, name, output_excel)
