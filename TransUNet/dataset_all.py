@@ -85,9 +85,9 @@ def process_case(pid_path, is_train=True):
             img_slice = img_arr[i, :, :]
             label_slice = label_arr[i, :, :]
 
-            # 🚫 跳过完全空层
-            if np.sum(label_slice) == 0:
-                continue
+            # # 🚫 跳过完全空层
+            # if np.sum(label_slice) == 0:
+            #     continue
 
             save_name = f"{pid}_slice{i:03d}.npz"
             save_path = os.path.join(train_npz_dir, save_name)

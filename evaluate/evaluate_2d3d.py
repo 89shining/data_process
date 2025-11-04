@@ -1,6 +1,5 @@
 """
-Pos_eval_2d3d_fixed_v4.py
-最终版：修复HD95、STD计算范围、单位标注、Summary美化、控制台汇总
+2d
 """
 
 import os
@@ -154,32 +153,55 @@ def evaluate_model_combined(gt_dir, pred_dir, sheet_name, output_excel):
 
     df = pd.DataFrame(records, columns=columns)
 
-    # ---- 仅计算 p_0-p_19 ----
-    numeric_df = df[~df["ID"].isin(["Mean", "STD"])]
+    # ---- 去除旧的 Mean / STD 行，仅保留 p_数字行 ----
+    df = df[~df["ID"].isin(["Mean", "STD"])]
+
+    # ✅ 彻底断开引用，防止 Mean 行被隐式包含
+    numeric_df = (
+        df[df["ID"].str.match(r"p_\d+$", na=False)]
+        .reset_index(drop=True)
+        .copy()
+    )
+
+    if numeric_df.empty:
+        print("⚠️ 警告：未匹配到任何 p_xx 行，STD/Mean 将为空！")
+
     metric_cols = ["2D DSC", "2D HD95 (mm)", "3D Dice", "3D HD95 (mm)", "IoU", "ASD (mm)"]
 
     # ---- 计算 Mean & STD ----
     mean_row, std_row = ["Mean"], ["STD"]
-    num_cols = len(columns) - 1  # 除去 ID 列
 
-    for i, col in enumerate(columns[1:], start=1):
-        vals = pd.to_numeric(numeric_df[col], errors='coerce')
-        mean_val = np.nanmean(vals)
-        std_val = np.nanstd(vals)
+    # ✅ 自动筛选出 p_ 开头的病例行（不包含 Mean / STD）
+    numeric_df = (
+        df[df["ID"].astype(str).str.match(r"^p_\d+$", na=False)]
+        .reset_index(drop=True)
+        .copy()
+    )
 
-        # 仅计算前6列的标准差
-        if 1 <= i <= 6:
-            mean = round(mean_val, 2) if not np.isnan(mean_val) else ""
-            std = round(std_val, 2) if not np.isnan(std_val) else ""
-        else:
-            mean = round(mean_val, 2) if not np.isnan(mean_val) else ""
-            std = ""  # 后面列空出来
+    # 防止空 DataFrame
+    if numeric_df.empty:
+        print(f"⚠️ 警告：未找到 p_ 开头的病例行，跳过统计计算。")
+    else:
+        for i, col in enumerate(columns[1:], start=1):
+            vals = pd.to_numeric(numeric_df[col], errors='coerce')
+            mean_val = np.nanmean(vals)
+            # ✅ 使用样本标准差，与 Excel STDEV 一致
+            std_val = np.nanstd(vals, ddof=1)
 
-        mean_row.append(mean)
-        std_row.append(std)
+            # 仅计算前6列的标准差
+            if 1 <= i <= 6:
+                mean = round(mean_val, 2) if not np.isnan(mean_val) else ""
+                std = round(std_val, 2) if not np.isnan(std_val) else ""
+            else:
+                mean = round(mean_val, 2) if not np.isnan(mean_val) else ""
+                std = ""  # 后面列空出来
 
-    df.loc[len(df)] = mean_row
-    df.loc[len(df)] = std_row
+            mean_row.append(mean)
+            std_row.append(std)
+
+        # 添加均值和标准差行
+        df.loc[len(df)] = mean_row
+        df.loc[len(df)] = std_row
 
     # ---- 写入 Excel ----
     mode = 'a' if os.path.exists(output_excel) else 'w'
@@ -266,15 +288,26 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
-    output_excel = r"C:\Users\dell\Desktop\Pos_eval_2d3d_check.xlsx"
+    gtDir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
 
+    # Num
+    output_excel = r"C:\Users\WS\Desktop\Num_eval.xlsx"
     model_paths = {
-        "area": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\max_area\expand_0.5cm_vis",
-        "volume": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\mid_volume\expand_0.5cm_vis",
-        "random": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Pos_box_prompts\random\expand_0.5cm_vis",
-        "z": r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\Num_box_prompts\prompt_3_vis",
+        "2slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_2_vis",
+        "3slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_3_vis",
+        "5slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_5_vis",
+        "7slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_7_vis",
+        "all_slices": r"C:\Users\WS\Desktop\Statistics\fix_cm\testresults\Freeze_image_encoder\expand_0.5cm",
     }
+
+    # # Pos
+    # output_excel = r"C:\Users\WS\Desktop\Pos_eval.xlsx"
+    # model_paths = {
+    #     "area": r"C:\Users\WS\Desktop\Statistics\Pos_box_prompts\max_area",
+    #     "volume": r"C:\Users\WS\Desktop\Statistics\Pos_box_prompts\mid_volume",
+    #     "random": r"C:\Users\WS\Desktop\Statistics\Pos_box_prompts\random",
+    #     "z": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_3_vis",
+    # }
 
     for name, path in model_paths.items():
         evaluate_model_combined(gtDir, path, name, output_excel)

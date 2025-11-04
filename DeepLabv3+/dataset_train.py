@@ -44,24 +44,26 @@ def nii_to_voc(image_path, mask_path, save_root, pid, keep_margin=1):
     if img_arr.shape != msk_arr.shape:
         raise ValueError(f"[错误] 尺寸不一致: {pid}, image={img_arr.shape}, mask={msk_arr.shape}")
 
-    # 找出非空切片索引
-    nonzero_idx = np.where(msk_arr.reshape(msk_arr.shape[0], -1).sum(axis=1) > 0)[0]
-    if len(nonzero_idx) == 0:
-        print(f"[跳过] {pid} 全部为空 mask。")
-        return []
+    # # 找出非空切片索引
+    # nonzero_idx = np.where(msk_arr.reshape(msk_arr.shape[0], -1).sum(axis=1) > 0)[0]
+    # if len(nonzero_idx) == 0:
+    #     print(f"[跳过] {pid} 全部为空 mask。")
+    #     return []
+    # # 保留边界邻层（上下各 keep_margin 层）
+    # start = max(0, nonzero_idx[0] - keep_margin)
+    # end = min(msk_arr.shape[0], nonzero_idx[-1] + keep_margin + 1)
+    # slice_range = range(start, end)
 
-    # 保留边界邻层（上下各 keep_margin 层）
-    start = max(0, nonzero_idx[0] - keep_margin)
-    end = min(msk_arr.shape[0], nonzero_idx[-1] + keep_margin + 1)
-    slice_range = range(start, end)
+    # 🚫 不再筛选非空切片，保留全部层
+    slice_range = range(msk_arr.shape[0])
 
     slice_names = []
     for i in slice_range:
         img_slice = apply_window(img_arr[i])
         mask_slice = (msk_arr[i] > 0).astype(np.uint8) * 1
 
-        if np.sum(mask_slice) == 0:
-            continue  # 跳过空切片
+        # if np.sum(mask_slice) == 0:
+        #     continue  # 跳过空切片
 
         img_name = f"{pid}_slice{i:03d}"
         Image.fromarray(img_slice).convert("L").save(
