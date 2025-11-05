@@ -1,11 +1,13 @@
 """
-将 nii.gz 转换为 TransUNet 数据格式
+将 nii.gz 转换为 SwinUNet 数据格式
 ✅ 固定 train/test 文件夹
 ✅ 窗宽窗位归一化 (0-1)
 ✅ 生成 train/test list
 """
 
 import os
+
+import cv2
 import numpy as np
 import SimpleITK as sitk
 from tqdm import tqdm
@@ -13,12 +15,12 @@ import h5py
 import random
 
 # ===================== 参数设置 =====================
-root_dir = r"D:\SAM\GTVp_CTonly\20250809\datanii"
+root_dir = r"/home/wusi/SAMdata/20250711_GTVp/datanii"
 train_dir = os.path.join(root_dir, "train_nii")
 test_dir = os.path.join(root_dir, "test_nii")
 
-save_dir = r"D:\project\TransUNet\data\Synapse"
-list_dir = r"D:\project\TransUNet\lists\lists_Synapse"
+save_dir = r"/home/wusi/SwinUNet/data/Synapse"
+list_dir = r"/home/wusi/SwinUNet/lists/Synapse"
 os.makedirs(save_dir, exist_ok=True)
 os.makedirs(list_dir, exist_ok=True)
 
@@ -84,6 +86,12 @@ def process_case(pid_path, is_train=True):
             img_slice = img_arr[i, :, :]
             label_slice = label_arr[i, :, :]
 
+            # ===== 新增：Resize 到 224×224 =====
+            target_size = (224, 224)
+            img_slice = cv2.resize(img_slice, target_size, interpolation=cv2.INTER_LINEAR)
+            label_slice = cv2.resize(label_slice, target_size, interpolation=cv2.INTER_NEAREST)
+            # ====================================
+
             # # 🚫 跳过完全空层
             # if np.sum(label_slice) == 0:
             #     continue
@@ -107,13 +115,10 @@ train_patients = sorted([os.path.join(train_dir, d) for d in os.listdir(train_di
 test_patients = sorted([os.path.join(test_dir, d) for d in os.listdir(test_dir) if d.startswith("p_")])
 
 # --- 固定 val 划分 ---
-if make_val:
-    random.shuffle(train_patients)
-    split_idx = int(len(train_patients) * (1 - val_ratio))
-    val_patients = train_patients[split_idx:]
-    train_patients = train_patients[:split_idx]
-else:
-    val_patients = []
+random.shuffle(train_patients)
+split_idx = int(len(train_patients) * (1 - val_ratio))
+val_patients = train_patients[split_idx:]
+train_patients = train_patients[:split_idx]
 
 train_list, val_list, test_list = [], [], []
 
@@ -122,9 +127,8 @@ for p in tqdm(train_patients, desc="Train set"):
     train_list += process_case(p, is_train=True)
 
 # --- 处理验证集 ---
-if make_val:
-    for p in tqdm(val_patients, desc="Val set"):
-        val_list += process_case(p, is_train=True)
+for p in tqdm(val_patients, desc="Val set"):
+    val_list += process_case(p, is_train=True)
 
 # --- 处理测试集 ---
 for p in tqdm(test_patients, desc="Test set"):
@@ -134,9 +138,8 @@ for p in tqdm(test_patients, desc="Test set"):
 with open(os.path.join(list_dir, "train.txt"), "w") as f:
     f.writelines([f"{x}\n" for x in train_list])
 
-if make_val:
-    with open(os.path.join(list_dir, "val.txt"), "w") as f:
-        f.writelines([f"{x}\n" for x in val_list])
+with open(os.path.join(list_dir, "val.txt"), "w") as f:
+    f.writelines([f"{x}\n" for x in val_list])
 
 with open(os.path.join(list_dir, "test_vol.txt"), "w") as f:
     f.writelines([f"{x}\n" for x in test_list])
