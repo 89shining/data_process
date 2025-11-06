@@ -297,35 +297,64 @@ def generate_summary_mean_sheet(output_excel):
 if __name__ == "__main__":
     gtDir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
 
+    # cm
+    output_excel = r"C:\Users\WS\Desktop\cm_eval_all.xlsx"
+    base_root = r"C:\Users\WS\Desktop\20251104\cm"
+    base_dict = {
+        # "Freeze_encoder_decoder": "encoder_decoder",
+        # "Freeze_image_encoder": "image_encoder",
+        # "Freeze_mask_decoder": "mask_decoder",
+        "TrainAll": "TrainAll"
+    }
+    x_lists = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
+    model_paths = {
+        f"{short}_{x}": os.path.join(
+            base_root,
+            base,
+            f"expand_{int(x)}cm" if x == 0 else f"expand_{x:.1f}cm"
+        )
+        for base, short in base_dict.items()
+        for x in x_lists
+    }
+
     # # Num
     # output_excel = r"C:\Users\WS\Desktop\Num_eval.xlsx"
     # model_paths = {
-    #     "2slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_2_vis",
-    #     "3slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_3_vis",
-    #     "5slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_5_vis",
-    #     "7slices": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_7_vis",
-    #     "all_slices": r"C:\Users\WS\Desktop\Statistics\fix_cm\testresults\Freeze_image_encoder\expand_0.5cm",
+    #     "2slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\2_slices",
+    #     "3slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\3_slices",
+    #     "5slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\5_slices",
+    #     "7slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\7_slices",
+    #     "all_slices": r"C:\Users\WS\Desktop\20251104\cm\Freeze_image_encoder\expand_0.5cm",
     # }
 
     # # Pos
-    # output_excel = r"C:\Users\WS\Desktop\Pos_eval.xlsx"
+    # output_excel = r"C:\Users\WS\Desktop\Pos_eval_random.xlsx"
     # model_paths = {
-    #     "area": r"C:\Users\WS\Desktop\Statistics\Pos_box_prompts\max_area",
-    #     "volume": r"C:\Users\WS\Desktop\Statistics\Pos_box_prompts\mid_volume",
-    #     "random": r"C:\Users\WS\Desktop\Statistics\Pos_box_prompts\random",
-    #     "z": r"C:\Users\WS\Desktop\Statistics\Num_box_prompts\prompt_3_vis",
+    #     # "middle_z": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\middle_z_rep0",
+    #     # "max_area": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\max_area_rep0",
+    #     # "middle_volume": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\mid_volume_rep0",
+    #     "25": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep25",
+    #     "104": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep104",
+    #     "114": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep114",
+    #     "142": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep142",
+    #     "228": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep228",
+    #     "250": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep250",
+    #     "281": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep281",
+    #     "654": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep654",
+    #     "754": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep754",
+    #     "759": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep759",
     # }
 
-    # Baseline
-    output_excel = r"C:\Users\WS\Desktop\Baseline_eval.xlsx"
-    model_paths = {
-        "nnUNet_2d": r"C:\Users\WS\Desktop\Statistics\nnUNet_2d",
-        "nnUNet_3d": r"C:\Users\WS\Desktop\Statistics\nnUNet_3d",
-        "UNet": r"C:\Users\WS\Desktop\Statistics\UNet",
-        "Deeplabv3+": r"C:\Users\WS\Desktop\Statistics\Deeplabv3+",
-        "TransUNet": r"C:\Users\WS\Desktop\Statistics\TransUNet",
-        "Att_UNet": r"C:\Users\WS\Desktop\Statistics\Att_UNet",
-    }
+    # # Baseline
+    # output_excel = r"C:\Users\WS\Desktop\Baseline_eval2.xlsx"
+    # model_paths = {
+    #     # "nnUNet_2d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_2d",
+    #     # "nnUNet_3d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_3d",
+    #     "UNet": r"C:\Users\WS\Desktop\20251104\baseline\UNet",
+    #     # "Deeplabv3+": r"C:\Users\WS\Desktop\20251104\baseline\Deeplabv3+",
+    #     # "TransUNet": r"C:\Users\WS\Desktop\20251104\baseline\TransUNet",
+    #     # "SwinUNet": r"C:\Users\WS\Desktop\20251104\baseline\SwinUNet",
+    # }
 
     for name, path in model_paths.items():
         evaluate_model_combined(gtDir, path, name, output_excel)
