@@ -151,7 +151,7 @@ def evaluate_model_combined(gt_dir, pred_dir, sheet_name, output_excel):
 
     # ---- 表头 ----
     columns = [
-        "ID", "2D DSC", "2D HD95 (mm)",
+        "ID", "2D Dice", "2D HD95 (mm)",
         "3D Dice", "3D HD95 (mm)", "IoU", "ASD (mm)",
         "Sensitivity (%)", "Specificity (%)", "Precision (%)", "Accuracy (%)",
         "TP (vox)", "TN (vox)", "FP (vox)", "FN (vox)",

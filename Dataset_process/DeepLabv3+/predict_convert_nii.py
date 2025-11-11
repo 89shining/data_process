@@ -1,3 +1,7 @@
+"""
+将模型预测png——nii.gz
+"""
+
 import os
 import re
 import numpy as np
