@@ -23,7 +23,7 @@ def get_dicom_info(dicom_folder):
         return None, None
 
 # ===== 主程序 =====
-root_dir = r"C:\Users\dell\Desktop\SAM\GTVp_CTonly\rawdata_80例\testrawdata"   # ← 修改为你的A文件夹路径
+root_dir = r"D:\SAM\Esophagus\Rawdata"   # ← 修改为你的A文件夹路径
 
 results = []
 for patient_folder in sorted(os.listdir(root_dir)):

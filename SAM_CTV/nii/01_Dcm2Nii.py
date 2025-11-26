@@ -80,11 +80,11 @@ def extract_mask(pa_path, rts_dir, mask_path, roi_name, ct_files_sorted):
 
 
 if __name__ == "__main__":
-    root_dir = r"C:\Users\dell\Desktop\SAM\CTV\rawdata\testrawdata"
+    root_dir = r"D:\SAM\Esophagus\20251127\rawdata\test"
     roi_name = "CTV"
-    output_dir = r"C:/Users/dell/Desktop/SAM\CTV/datanii/test_nii"
+    output_dir = r"D:\SAM\Esophagus\20251127\datanii\test_nii"
     os.makedirs(output_dir, exist_ok=True)
-    csv_path = "C:/Users/dell/Desktop/patient_id.csv"
+    csv_path = r"D:\SAM\Esophagus\20251127\datanii\patient_id2.csv"
 
     palist = sorted(GetSubDirs(root_dir))
     i = 0

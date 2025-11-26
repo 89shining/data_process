@@ -138,7 +138,7 @@ import SimpleITK as sitk
 import glob
 
 # 设置总文件夹路径
-root_dir = r"C:\Users\dell\Desktop\example\newct"  # 替换为你的实际路径
+root_dir = r"D:\SAM\Esophagus\20251127\datanii\train_nii"  # 替换为你的实际路径
 
 # 遍历每个患者子文件夹
 for patient_id in sorted(os.listdir(root_dir)):
