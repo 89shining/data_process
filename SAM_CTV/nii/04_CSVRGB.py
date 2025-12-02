@@ -6,7 +6,7 @@ import os
 import pandas as pd
 
 # 根目录路径
-root_dir = r"C:\Users\WS\Desktop\CTV\dataset/test"  # rgb_images train/test根目录
+root_dir = r"D:\SAM\Rectal\CTV\146p\20251126\dataset\test"  # rgb_images train/test根目录
 pseudo_dir = os.path.join(root_dir, "rgb_images")
 mask_dir = os.path.join(root_dir, "masks")
 

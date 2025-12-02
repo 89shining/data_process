@@ -8,7 +8,7 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 
-root_dir = r"C:\Users\WS\Desktop\CTV\dataset/test"   # 2d nii train/test根目录
+root_dir = r"D:\SAM\Rectal\CTV\146p\20251126\dataset\test"   # 2d nii train/test根目录
 csv_path = os.path.join(root_dir, "test_nii.csv")
 save_dir = os.path.join(root_dir, "rgb_images")
 os.makedirs(save_dir, exist_ok=True)
@@ -36,7 +36,7 @@ for idx in tqdm(range(len(df))):
 
     # 读取并处理图像
     img = sitk.GetArrayFromImage(sitk.ReadImage(image_path))
-    img_255 = window_level_transform(img, window_center=40, window_width=350)
+    img_255 = window_level_transform(img, window_center=40, window_width=400)
     img_rgb = Image.fromarray(img_255).convert("RGB")
 
     # 创建患者目录并保存

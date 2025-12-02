@@ -173,7 +173,7 @@ def evaluate_model_combined(gt_dir, pred_dir, sheet_name, output_excel):
     if numeric_df.empty:
         print("⚠️ 警告：未匹配到任何 p_xx 行，STD/Mean 将为空！")
 
-    metric_cols = ["2D DSC", "2D HD95 (mm)", "3D Dice", "3D HD95 (mm)", "IoU", "ASD (mm)"]
+    metric_cols = ["2D Dicd", "2D HD95 (mm)", "3D Dice", "3D HD95 (mm)", "IoU", "ASD (mm)"]
 
     # ---- 计算 Mean & STD ----
     mean_row, std_row = ["Mean"], ["STD"]
@@ -251,7 +251,7 @@ def generate_summary_mean_sheet(output_excel):
         std_row = [ws.cell(row=ws.max_row, column=i).value for i in range(1, ws.max_column + 1)]
         model = sheet
         combined = [model]
-        metric_cols = ["2D DSC", "2D HD95 (mm)", "3D Dice", "3D HD95 (mm)", "IoU", "ASD (mm)"]
+        metric_cols = ["2D Dice", "2D HD95 (mm)", "3D Dice", "3D HD95 (mm)", "IoU", "ASD (mm)"]
         for i, col in enumerate(ref_columns[1:], start=1):
             mean_val, std_val = mean_row[i], std_row[i]
             if col in metric_cols:
@@ -295,27 +295,27 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\SAM\GTVp_CTonly\20250809\nnUNet\Dataset001_GTVp\labelsTs"
+    gtDir = r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\Dataset005_GTVpCrop\labelsTs"
 
-    # cm
-    output_excel = r"C:\Users\WS\Desktop\cm_eval_all.xlsx"
-    base_root = r"C:\Users\WS\Desktop\20251104\cm"
-    base_dict = {
-        # "Freeze_encoder_decoder": "encoder_decoder",
-        # "Freeze_image_encoder": "image_encoder",
-        # "Freeze_mask_decoder": "mask_decoder",
-        "TrainAll": "TrainAll"
-    }
-    x_lists = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
-    model_paths = {
-        f"{short}_{x}": os.path.join(
-            base_root,
-            base,
-            f"expand_{int(x)}cm" if x == 0 else f"expand_{x:.1f}cm"
-        )
-        for base, short in base_dict.items()
-        for x in x_lists
-    }
+    # # cm
+    # output_excel = r"C:\Users\WS\Desktop\cm_eval_all.xlsx"
+    # base_root = r"C:\Users\WS\Desktop\20251104\cm"
+    # base_dict = {
+    #     # "Freeze_encoder_decoder": "encoder_decoder",
+    #     # "Freeze_image_encoder": "image_encoder",
+    #     # "Freeze_mask_decoder": "mask_decoder",
+    #     "TrainAll": "TrainAll"
+    # }
+    # x_lists = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
+    # model_paths = {
+    #     f"{short}_{x}": os.path.join(
+    #         base_root,
+    #         base,
+    #         f"expand_{int(x)}cm" if x == 0 else f"expand_{x:.1f}cm"
+    #     )
+    #     for base, short in base_dict.items()
+    #     for x in x_lists
+    # }
 
     # # Num
     # output_excel = r"C:\Users\WS\Desktop\Num_eval.xlsx"
@@ -345,16 +345,16 @@ if __name__ == "__main__":
     #     "759": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep759",
     # }
 
-    # # Baseline
-    # output_excel = r"C:\Users\WS\Desktop\Baseline_eval2.xlsx"
-    # model_paths = {
-    #     # "nnUNet_2d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_2d",
-    #     # "nnUNet_3d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_3d",
-    #     "UNet": r"C:\Users\WS\Desktop\20251104\baseline\UNet",
-    #     # "Deeplabv3+": r"C:\Users\WS\Desktop\20251104\baseline\Deeplabv3+",
-    #     # "TransUNet": r"C:\Users\WS\Desktop\20251104\baseline\TransUNet",
-    #     # "SwinUNet": r"C:\Users\WS\Desktop\20251104\baseline\SwinUNet",
-    # }
+    # Baseline
+    output_excel = r"C:\Users\WS\Desktop\Baseline_crop_eval.xlsx"
+    model_paths = {
+        "nnUNet_2d": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\testresults",
+        # "nnUNet_3d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_3d",
+        "UNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\UNet",
+        "Deeplabv3+": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\Deeplabv3+",
+        "TransUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet",
+        "SwinUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\SwinUNet",
+    }
 
     for name, path in model_paths.items():
         evaluate_model_combined(gtDir, path, name, output_excel)

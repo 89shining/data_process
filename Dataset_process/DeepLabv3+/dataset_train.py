@@ -2,7 +2,6 @@
 将 train_nii.gz 转为 VOC 数据集格式
 ✅ 窗宽窗位 (WL=40, WW=350)
 ✅ 归一化到 [0,255]
-✅ 自动跳过空 mask 切片
 ✅ 随机划分 train/val/test
 """
 
@@ -14,7 +13,7 @@ from PIL import Image
 from tqdm import tqdm
 
 # ===================== 参数设置 =====================
-root_dir = r"D:\SAM\GTVp_CTonly\20250809\datanii\train_nii"
+root_dir = r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\cropnii\train_nii"
 save_root = r"D:/project/deeplabv3-plus-pytorch/VOCdevkit/VOC2007"
 trainval_percent = 1.0
 train_percent = 0.9
