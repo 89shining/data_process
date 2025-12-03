@@ -32,13 +32,13 @@ def GetSubFolders(file_dir):
 
 if __name__ == "__main__":
 
-    ctdir = r'D:\SAM\Rectal\GTVp_CTonly\20251128-crop\cropnii\train_crop'   # 训练集 nii目录
-    imadir = r'D:\SAM\Rectal\GTVp_CTonly\20251128-crop/nnUNet/Dataset005_GTVpCrop/imagesTr'    # 训练 images保存地址
-    maskdir = r'D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\Dataset005_GTVpCrop/labelsTr'   # 训练 masks保存地址
+    ctdir = r'D:\SAM\Esophagus\20251127\datanii\train_nii'   # 训练集 nii目录
+    imadir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET\train\imagesTr'    # 训练 images保存地址
+    maskdir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET/train\labelsTr'   # 训练 masks保存地址
     os.makedirs(imadir, exist_ok = True)
     os.makedirs(maskdir, exist_ok = True)
 
-    dataset_name = "GTVpCrop"  # 数据集名称
+    dataset_name = "CTV"  # 数据集名称
     palist = GetSubFolders(ctdir)
     for pa in palist:
         print(pa)
@@ -48,13 +48,13 @@ if __name__ == "__main__":
         print(dstfile)
         shutil.copy(srcfile, dstfile)      # 文件复制
 
-        srcfile = ctdir + '/' + pa + '/GTVp.nii.gz'   # 获取患者mask GT文件地址
+        srcfile = ctdir + '/' + pa + '/CTV.nii.gz'   # 获取患者mask GT文件地址
         dstfile = f"{maskdir}/{dataset_name}_{int(nid):03d}.nii.gz"
         shutil.copy(srcfile, dstfile)  # 文件复制
 
-    ctdir = r'D:\SAM\Rectal\GTVp_CTonly\20251128-crop\cropnii\test_crop'   # 测试集 nii目录
-    imadir = r'D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\Dataset005_GTVpCrop/imagesTs'   # 测试 images保存地址
-    maskdir = r'D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\Dataset005_GTVpCrop/labelsTs'      # 测试 masks保存地址，可选
+    ctdir = r'D:\SAM\Esophagus\20251127\datanii\test_nii'   # 测试集 nii目录
+    imadir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET\test/imagesTs'   # 测试 images保存地址
+    maskdir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET\test/labelsTs'      # 测试 masks保存地址，可选
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
 
@@ -65,6 +65,6 @@ if __name__ == "__main__":
         dstfile = f"{imadir}/{dataset_name}_{int(nid):03d}_0000.nii.gz"
         shutil.copy(srcfile, dstfile)
 
-        srcfile = ctdir + '/' + pa + '/GTVp.nii.gz'
+        srcfile = ctdir + '/' + pa + '/CTV.nii.gz'
         dstfile = f"{maskdir}/{dataset_name}_{int(nid):03d}.nii.gz"
         shutil.copy(srcfile, dstfile)  # 文件复制
