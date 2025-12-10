@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\Dataset005_GTVpCrop\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\test\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\WS\Desktop\cm_eval_all.xlsx"
@@ -346,14 +346,15 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\WS\Desktop\Baseline_crop_eval.xlsx"
+    output_excel = r"C:\Users\dell\Desktop\eval2.xlsx"
     model_paths = {
-        "nnUNet_2d": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\testresults",
+        # "nnUNet_2d": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\testresults",
         # "nnUNet_3d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_3d",
-        "UNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\UNet",
-        "Deeplabv3+": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\Deeplabv3+",
-        "TransUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet",
-        "SwinUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\SwinUNet",
+        # "UNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\UNet",
+        # "Deeplabv3+": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\Deeplabv3+",
+        # "TransUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet",
+        # "SwinUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\SwinUNet",
+        "Test2": r"C:\Users\dell\Desktop\TestResult2",
     }
 
     for name, path in model_paths.items():

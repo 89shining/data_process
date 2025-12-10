@@ -7,9 +7,9 @@ import random
 import shutil
 
 # ==== 配置 ====
-folderA = r"D:\SAM\Esophagus\Rawdata"   # 存放原始患者子文件夹的目录
-train_out = r"D:\SAM\Esophagus\20251127\rawdata\train"  # 输出：训练集
-test_out  = r"D:\SAM\Esophagus\20251127\rawdata\test"   # 输出：测试集
+folderA = r"D:\project\MM-LLM-RO\dataset\all"   # 存放原始患者子文件夹的目录
+train_out = r"D:\project\MM-LLM-RO\dataset\internal"  # 输出：训练集
+test_out  = r"D:\project\MM-LLM-RO\dataset\external1"   # 输出：测试集
 
 # ==== 创建输出文件夹 ====
 os.makedirs(train_out, exist_ok=True)
@@ -21,16 +21,16 @@ patients = sorted(patients)  # 可选：保证顺序可控
 
 print(f"总患者数: {len(patients)}")   # 期望为 146
 
-if len(patients) < 66:
-    print("⚠️ 注意：患者数量似乎少于 66，请检查路径！")
+if len(patients) < 52:
+    print("⚠️ 注意：患者数量似乎少于 52，请检查路径！")
 
 # ==== 随机打乱 ====
 random.seed(2025)  # 固定随机种子，使划分可复现
 random.shuffle(patients)
 
 # ==== 划分 ====
-train_patients = patients[:50]
-test_patients  = patients[50:50+16]
+train_patients = patients[:40]
+test_patients  = patients[40:40+12]
 
 print(f"训练集: {len(train_patients)}")
 print(f"测试集: {len(test_patients)}")
