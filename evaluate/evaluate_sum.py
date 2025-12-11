@@ -346,7 +346,7 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"D:\SAM\Esophagus\20251127\Sam3D\Eso_CTV_eval.xlsx"
+    output_excel = r"D:\SAM\Esophagus\20251127\Sam3D\20251209\Eso_CTV.xlsx"
     model_paths = {
         # "nnUNet_2d": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\testresults",
         # "nnUNet_3d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_3d",
@@ -354,8 +354,10 @@ if __name__ == "__main__":
         # "Deeplabv3+": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\Deeplabv3+",
         # "TransUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet",
         # "SwinUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\SwinUNet",
-        "Crop_CTV": r"D:\SAM\Esophagus\20251127\Sam3D\TestResult_crop",
-        "CTV": r"D:\SAM\Esophagus\20251127\Sam3D\TestResult"
+        "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
+        "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
+        "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",
+        "SAM_SIcrop": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_SIcrop"
     }
 
     for name, path in model_paths.items():
