@@ -6,10 +6,10 @@ import numpy as np
 from PIL import Image
 import nibabel as nib
 #
-# ref = nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/Data/Data_nii/p_65/image.nii.gz")
+# ref = nib.load("C:/Users/dell/Desktop/Rectal_GTVp/GTVp_CTonly/Data/Data_nii/p_65/image.nii.gz")
 # ref_shape = ref.shape[:2]
 #
-# png = Image.open("C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/testresults/finetune1.1/masks_pred/p_65/21.png")
+# png = Image.open("C:/Users/dell/Desktop/Rectal_GTVp/GTVp_CTonly/testresults/finetune1.1/masks_pred/p_65/21.png")
 # print("PNG size:", png.size)
 # print("Reference slice size:", ref_shape)
 
@@ -30,13 +30,13 @@ import nibabel as nib
 # import nibabel as nib
 # import matplotlib.pyplot as plt
 #
-# img = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).get_fdata()
-# pred = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).get_fdata()
-# gt = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).get_fdata()
+# img = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/Rectal_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).get_fdata()
+# pred = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/Rectal_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).get_fdata()
+# gt = nib.as_closest_canonical(nib.load("C:/Users/dell/Desktop/Rectal_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).get_fdata()
 #
-# print((nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).affine)
-# print((nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).affine)
-# print((nib.load("C:/Users/dell/Desktop/SAM_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).affine)
+# print((nib.load("C:/Users/dell/Desktop/Rectal_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/image.nii.gz")).affine)
+# print((nib.load("C:/Users/dell/Desktop/Rectal_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/GTVnd.nii.gz")).affine)
+# print((nib.load("C:/Users/dell/Desktop/Rectal_GTVp/GTVnd/testresults_fold3/vis_nii/p_15/pred.nii.gz")).affine)
 #
 # z = 51  # 任意层号
 # plt.imshow(img[:, :, z], cmap='gray')
@@ -138,7 +138,7 @@ import SimpleITK as sitk
 import glob
 
 # 设置总文件夹路径
-root_dir = r"D:\SAM\Esophagus\20251127\datanii\train_nii"  # 替换为你的实际路径
+root_dir = r"C:\Users\dell\Desktop\Eso-CTV\datanii\train"  # 替换为你的实际路径
 
 # 遍历每个患者子文件夹
 for patient_id in sorted(os.listdir(root_dir)):

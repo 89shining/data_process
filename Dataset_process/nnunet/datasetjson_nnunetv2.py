@@ -43,8 +43,7 @@ channel_names = {str(i): f"Modality{i}" for i in range(len(modalities))}
 # 多模态
 channel_names = {
     "0": "CT",
-    # "1": "GTVp"
-    # "2": "B"
+    # "1": "MR"
 }
 
 # 构建 dataset.json

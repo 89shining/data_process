@@ -1,5 +1,5 @@
 """
-crop后只保留GTVp切片
+crop后只保留CTV切片
 """
 import os
 import numpy as np
@@ -48,8 +48,8 @@ def crop_ct_and_mask(ct_path, mask_path, save_ct_path, save_mask_path):
 
 
 # =============== 批处理 ===============
-root_dir = r"D:\SAM\Rectal\GTVp_CTonly\20250809\datanii\train_nii"  # <-- 你的 p_001/p_002/... 的上级目录
-output_root = r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\cropnii\train_nii"   # 最终统一保存的位置
+root_dir = r"C:\Users\dell\Desktop\Eso-CTV\20251217\datanii\train_nii"  # <-- 你的 p_001/p_002/... 的上级目录
+output_root = r"C:\Users\dell\Desktop\Eso-CTV\20251217\nnUNet\cropnii\train_nii"   # 最终统一保存的位置
 os.makedirs(output_root, exist_ok=True)
 
 patient_dirs = sorted([
@@ -66,7 +66,7 @@ for p_dir in patient_dirs:
     print(f"处理患者: {p_name}")
 
     ct_path = os.path.join(p_dir, "image.nii.gz")
-    mask_path = os.path.join(p_dir, "GTVp.nii.gz")
+    mask_path = os.path.join(p_dir, "CTV.nii.gz")
 
     if not (os.path.exists(ct_path) and os.path.exists(mask_path)):
         print("缺少 image.nii.gz 或 GTVp.nii.gz，跳过")
@@ -77,7 +77,7 @@ for p_dir in patient_dirs:
     os.makedirs(out_dir, exist_ok=True)
 
     save_ct_path = os.path.join(out_dir, "image.nii.gz")
-    save_mask_path = os.path.join(out_dir, "GTVp.nii.gz")
+    save_mask_path = os.path.join(out_dir, "CTV.nii.gz")
 
     ok = crop_ct_and_mask(ct_path, mask_path, save_ct_path, save_mask_path)
 
