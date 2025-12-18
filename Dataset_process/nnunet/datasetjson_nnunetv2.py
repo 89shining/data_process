@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 # 数据集路径
-dataset_dir = Path(r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\Dataset005_GTVpCrop")
+dataset_dir = Path(r"/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p")
 images_tr_dir = dataset_dir / "imagesTr"
 
 # 自动提取模态编号和病例数
@@ -28,7 +28,7 @@ modalities = sorted(modalities)  # 模态编号排序（如 "0000", "0001"）
 # 手动填写 labels（根据你的数据集）
 labels = {
     "background": 0,
-    "GTVp": 1,
+    "CTV": 1,
     # 添加更多类别...
 }
 

@@ -32,9 +32,9 @@ def GetSubFolders(file_dir):
 
 if __name__ == "__main__":
 
-    ctdir = r'D:\SAM\Esophagus\20251127\datanii\train_nii'   # 训练集 nii目录
-    imadir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET\train\imagesTr'    # 训练 images保存地址
-    maskdir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET/train\labelsTr'   # 训练 masks保存地址
+    ctdir = r'/home/wusi/SAMdata/Eso-CTV/20251217/cropnii_nnUNet/train_nii'   # 训练集 nii目录
+    imadir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p/imagesTr'    # 训练 images保存地址
+    maskdir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p/labelsTr'   # 训练 masks保存地址
     os.makedirs(imadir, exist_ok = True)
     os.makedirs(maskdir, exist_ok = True)
 
@@ -52,9 +52,9 @@ if __name__ == "__main__":
         dstfile = f"{maskdir}/{dataset_name}_{int(nid):03d}.nii.gz"
         shutil.copy(srcfile, dstfile)  # 文件复制
 
-    ctdir = r'D:\SAM\Esophagus\20251127\datanii\test_nii'   # 测试集 nii目录
-    imadir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET\test/imagesTs'   # 测试 images保存地址
-    maskdir = r'D:\SAM\Esophagus\20251127\Sam3D\DATASET\test/labelsTs'      # 测试 masks保存地址，可选
+    ctdir = r'/home/wusi/SAMdata/Eso-CTV/20251217/cropnii_nnUNet/test_nii'   # 测试集 nii目录
+    imadir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p/imagesTs'   # 测试 images保存地址
+    maskdir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p/labelsTs'      # 测试 masks保存地址，可选
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
 
