@@ -27,7 +27,7 @@ def window_level_transform(img, window_center, window_width):
     img_255 = (img_normalized * 255).astype(np.uint8)
     return img_255
 #
-# image_path= "C:/Users\dell\Desktop\SAM_GTVp\GTVp_CTonly/20250604\dataset/train\images\p_0/34.nii"
+# image_path= "C:/Users\dell\Desktop\Rectal_GTVp\GTVp_CTonly/20250604\dataset/train\images\p_0/34.nii"
 # image = sitk.GetArrayFromImage(sitk.ReadImage(image_path))
 # # print(image.shape, image.dtype, image.mode)
 # # 调整窗宽窗位， 0-255
@@ -47,9 +47,9 @@ def window_level_transform(img, window_center, window_width):
 # 三张相邻图像生成伪rgb
 # 手动输入三张 2D NIfTI 图像路径
 # nii_paths = [
-#     "C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/20250604/dataset/train/images/p_0/34.nii",
-#     "C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/20250604/dataset/train/images/p_0/35.nii",
-#     "C:/Users/dell/Desktop/SAM_GTVp/GTVp_CTonly/20250604/dataset/train/images/p_0/36.nii",
+#     "C:/Users/dell/Desktop/Rectal_GTVp/GTVp_CTonly/20250604/dataset/train/images/p_0/34.nii",
+#     "C:/Users/dell/Desktop/Rectal_GTVp/GTVp_CTonly/20250604/dataset/train/images/p_0/35.nii",
+#     "C:/Users/dell/Desktop/Rectal_GTVp/GTVp_CTonly/20250604/dataset/train/images/p_0/36.nii",
 # ]
 
 # slices = []

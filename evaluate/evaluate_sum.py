@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\ESOTEXT\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\eso_text\52patient\251216\ESOTEXT\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\WS\Desktop\cm_eval_all.xlsx"
@@ -346,7 +346,7 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\dell\Desktop\Text_eval.xlsx"
+    output_excel = r"C:\Users\dell\Desktop\eso_text\52patient\251216\Text_eval2.xlsx"
     model_paths = {
         # "nnUNet_2d": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\testresults",
         # "nnUNet_3d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_3d",
@@ -357,9 +357,9 @@ if __name__ == "__main__":
         # "SAMMed-3D": r"C:\Users\dell\Desktop\TestResult",
         # "nnUNet3D": r"C:\Users\dell\Desktop\testResult_fold0",
         # "nnUNet2D": r"C:\Users\dell\Desktop\testResult2d_fold0",
-        "noText": r"C:\Users\dell\Desktop\ESOTEXT\notext",
-        "Text1": r"C:\Users\dell\Desktop\ESOTEXT\text1",
-        "Text2": r"C:\Users\dell\Desktop\ESOTEXT\text2-preck",
+        # "noText": r"C:\Users\dell\Desktop\ESOTEXT\notext",
+        "Text1": r"C:\Users\dell\Desktop\eso_text\52patient\251216\ESOTEXT\text1",
+        "Text2": r"C:\Users\dell\Desktop\eso_text\52patient\251216\ESOTEXT\text2",
 
     }
 
