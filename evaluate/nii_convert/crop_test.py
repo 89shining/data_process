@@ -3,7 +3,7 @@
 """
 
 """
-批量裁剪 GTVp 掩码（无 CT）
+批量裁剪 CTV 掩码（无 CT）
 只保留 mask 有前景的切片（Z 方向）
 """
 
@@ -47,8 +47,8 @@ def crop_mask(mask_path, save_mask_path):
 
 # ======================== 批处理目录结构 ========================
 
-input_dir = r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\test"   # A 文件夹
-output_dir = r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet"  # 输出 B 文件夹
+input_dir = r"D:\SAM\Esophagus\20251217\TestResult\SAM-512"   # A 文件夹
+output_dir = r"D:\SAM\Esophagus\20251217\TestResult\SAM"  # 输出 B 文件夹
 os.makedirs(output_dir, exist_ok=True)
 
 # 找到所有 .nii.gz 文件
@@ -57,7 +57,7 @@ files = sorted([
     if f.endswith(".nii.gz")
 ])
 
-print(f"共检测到 {len(files)} 个 GTV 掩码文件\n")
+print(f"共检测到 {len(files)} 个 CTV 掩码文件\n")
 
 for fname in files:
     print(f"=============================")

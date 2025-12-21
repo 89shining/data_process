@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\SAM\Esophagus\20251127\Sam3D\DATASET\test\labelsTs"
+    gtDir = r"D:\SAM\Esophagus\20251217\TestResult\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\WS\Desktop\cm_eval_all.xlsx"
@@ -346,18 +346,19 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"D:\SAM\Esophagus\20251127\Sam3D\20251209\Eso_CTV.xlsx"
+    output_excel = r"D:\SAM\Esophagus\20251217\Eso_CTV_73p.xlsx"
     model_paths = {
-        # "nnUNet_2d": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\nnUNet\testresults",
-        # "nnUNet_3d": r"C:\Users\WS\Desktop\20251104\baseline\nnUNet_3d",
+        "nnUNet_2D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_2D",
+        "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+        "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
         # "UNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\UNet",
         # "Deeplabv3+": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\Deeplabv3+",
         # "TransUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet",
         # "SwinUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\SwinUNet",
-        "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
-        "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
-        "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",
-        "SAM_SIcrop": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_SIcrop"
+        # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
+        # "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
+        # "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",
+        # "SAM_SIcrop": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_SIcrop"
     }
 
     for name, path in model_paths.items():
