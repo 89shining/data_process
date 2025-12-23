@@ -317,15 +317,15 @@ if __name__ == "__main__":
     #     for x in x_lists
     # }
 
-    # # Num
-    # output_excel = r"C:\Users\WS\Desktop\Num_eval.xlsx"
-    # model_paths = {
-    #     "2slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\2_slices",
-    #     "3slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\3_slices",
-    #     "5slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\5_slices",
-    #     "7slices": r"C:\Users\WS\Desktop\20251104\Num_box_prompts\7_slices",
-    #     "all_slices": r"C:\Users\WS\Desktop\20251104\cm\Freeze_image_encoder\expand_0.5cm",
-    # }
+    # Num
+    output_excel = r"D:\SAM\Esophagus\20251217\TestResult\Num_eval.xlsx"
+    model_paths = {
+        "2slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\2_slices",
+        "3slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\3_slices",
+        "5slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\5_slices",
+        "7slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\7_slices",
+        "all_slices": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
+    }
 
     # # Pos
     # output_excel = r"C:\Users\WS\Desktop\Pos_eval_random.xlsx"
@@ -346,11 +346,11 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"D:\SAM\Esophagus\20251217\Eso_CTV_73p.xlsx"
-    model_paths = {
-        "nnUNet_2D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_2D",
-        "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
-        "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
+    # output_excel = r"D:\SAM\Esophagus\20251217\Eso_CTV_73p.xlsx"
+    # model_paths = {
+        # "nnUNet_2D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_2D",
+        # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+        # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
         # "UNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\UNet",
         # "Deeplabv3+": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\Deeplabv3+",
         # "TransUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet",
@@ -359,7 +359,7 @@ if __name__ == "__main__":
         # "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
         # "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",
         # "SAM_SIcrop": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_SIcrop"
-    }
+    # }
 
     for name, path in model_paths.items():
         evaluate_model_combined(gtDir, path, name, output_excel)

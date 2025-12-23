@@ -48,8 +48,8 @@ def crop_ct_and_mask(ct_path, mask_path, save_ct_path, save_mask_path):
 
 
 # =============== 批处理 ===============
-root_dir = r"/home/wusi/SAMdata/Eso-CTV/20251217/datanii/test_nii"  # <-- 你的 p_001/p_002/... 的上级目录
-output_root = r"/home/wusi/SAMdata/Eso-CTV/20251217/cropnii_nnUNet/test_nii"   # 最终统一保存的位置
+root_dir = r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\7_slices"  # <-- 你的 p_001/p_002/... 的上级目录
+output_root = r"D:\SAM\Esophagus\20251217\TestResult\demo\Num_box_prompts\7_slices"   # 最终统一保存的位置
 os.makedirs(output_root, exist_ok=True)
 
 patient_dirs = sorted([
