@@ -120,11 +120,11 @@ def GenerateNIICSV(rootdir, ctdir, maskdir, trainfile):
     fqingxi.close()
 
 if __name__ == "__main__":
-    srcdir = 'C:/Users/WS/Desktop/add'  # nii.gz主目录
-    rootdir = 'C:/Users/WS/Desktop/dataset'   # dataset主目录
-    csv_path = 'C:/Users/WS/Desktop/dataset/p0_nii.csv'  # 保存csv地址
-    imadir = 'C:/Users/WS/Desktop/dataset/images'   # image.nii保存地址
-    maskdir = 'C:/Users/WS/Desktop/dataset/masks'
+    srcdir = 'C:/Users/dell/Desktop/test_nii'  # nii.gz主目录
+    rootdir = 'C:/Users/dell/Desktop/testdataset'   # dataset主目录
+    csv_path = 'C:/Users/dell/Desktop/testdataset/test_image.csv'  # 保存csv地址
+    imadir = 'C:/Users/dell/Desktop/testdataset/images'   # image.nii保存地址
+    maskdir = 'C:/Users/dell/Desktop/testdataset/masks'
     os.makedirs(imadir, exist_ok=True)
     os.makedirs(maskdir, exist_ok=True)
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
