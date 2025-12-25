@@ -295,16 +295,16 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\SAM\Esophagus\20251217\TestResult\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\20251224_Test40\test_data40\labelsTs"
 
     # # cm
-    # output_excel = r"C:\Users\WS\Desktop\cm_eval_all.xlsx"
-    # base_root = r"C:\Users\WS\Desktop\20251104\cm"
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
+    # base_root = r"C:\Users\dell\Desktop\20251224_Test40\cm"
     # base_dict = {
     #     # "Freeze_encoder_decoder": "encoder_decoder",
     #     # "Freeze_image_encoder": "image_encoder",
-    #     # "Freeze_mask_decoder": "mask_decoder",
-    #     "TrainAll": "TrainAll"
+    #     "Freeze_mask_decoder": "mask_decoder",
+    #     # "TrainAll": "TrainAll"
     # }
     # x_lists = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
     # model_paths = {
@@ -317,44 +317,44 @@ if __name__ == "__main__":
     #     for x in x_lists
     # }
 
-    # Num
-    output_excel = r"D:\SAM\Esophagus\20251217\TestResult\Num_eval.xlsx"
-    model_paths = {
-        "2slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\2_slices",
-        "3slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\3_slices",
-        "5slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\5_slices",
-        "7slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\7_slices",
-        "all_slices": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
-    }
-
-    # # Pos
-    # output_excel = r"C:\Users\WS\Desktop\Pos_eval_random.xlsx"
+    # # Num
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Num_eval.xlsx"
     # model_paths = {
-    #     # "middle_z": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\middle_z_rep0",
-    #     # "max_area": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\max_area_rep0",
-    #     # "middle_volume": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\mid_volume_rep0",
-    #     "25": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep25",
-    #     "104": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep104",
-    #     "114": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep114",
-    #     "142": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep142",
-    #     "228": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep228",
-    #     "250": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep250",
-    #     "281": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep281",
-    #     "654": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep654",
-    #     "754": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep754",
-    #     "759": r"C:\Users\WS\Desktop\20251104\Pos_box_prompts\random_rep759",
+    #     "2slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\2_slices",
+    #     "3slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\3_slices",
+    #     "5slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\5_slices",
+    #     "7slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\7_slices",
+    #     "all_slices": r"C:\Users\dell\Desktop\20251224_Test40\cm\Freeze_image_encoder\expand_0.5cm",
     # }
 
-    # Baseline
-    # output_excel = r"D:\SAM\Esophagus\20251217\Eso_CTV_73p.xlsx"
+    # Pos
+    output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
+    model_paths = {
+        "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
+        "max_area": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\max_area_rep0",
+        "middle_volume": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\mid_volume_rep0",
+    #     "25": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep25",
+    #     "104": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep104",
+    #     "114": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep114",
+    #     "142": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep142",
+    #     "228": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep228",
+    #     "250": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep250",
+    #     "281": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep281",
+    #     "654": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep654",
+    #     "754": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep754",
+    #     "759": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep759",
+    }
+
+    # # Baseline
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Baseline.xlsx"
     # model_paths = {
-        # "nnUNet_2D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_2D",
-        # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
-        # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
-        # "UNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\UNet",
-        # "Deeplabv3+": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\Deeplabv3+",
-        # "TransUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\TransUNet",
-        # "SwinUNet": r"D:\SAM\Rectal\GTVp_CTonly\20251128-crop\SwinUNet",
+    #     "nnUNet_2D": r"C:\Users\dell\Desktop\20251224_Test40\baseline\nnUNet_2d",
+    #     # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+    #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
+    #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
+    #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
+    #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
+    #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
         # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
         # "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
         # "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",

@@ -17,8 +17,8 @@ from rt_utils import RTStructBuilder
 # 路径配置
 # =========================
 RAW_ROOT = r"C:\Users\dell\Desktop\Eso-CTV\Rawdata"
-EXCEL_PATH = r"C:\Users\dell\Desktop\Eso-CTV\20251217\train_test_split.xlsx"
-OUT_ROOT = r"C:\Users\dell\Desktop\Eso-CTV\20251217\datanii"
+EXCEL_PATH = r"C:\Users\dell\Desktop\Eso-CTV\20251224\train_test_split2.xlsx"
+OUT_ROOT = r"C:\Users\dell\Desktop\Eso-CTV\20251224\datanii"
 
 ROI_NAME = "CTV"
 COL_ID = "放疗号"
