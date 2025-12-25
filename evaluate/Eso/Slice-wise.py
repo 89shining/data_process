@@ -1,5 +1,5 @@
 """
-计算每一个slice的评估指标
+计算每个case的每一个GT-slice的评估指标
 绘制逐层指标图
 """
 
@@ -67,7 +67,7 @@ def plot_slice_dice_curve(case_id, gt_path, model_paths, save_png):
 
     plt.xlabel('Slice index (S-I)')
     plt.ylabel('Dice coefficient')
-    plt.ylim(0.3, 1.0)
+    plt.ylim(0, 1.0)
     plt.title(f'Slice-wise Dice Curve (Case {case_id})')
 
     plt.legend()
@@ -86,12 +86,16 @@ if __name__ == "__main__":
     gt_dir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
 
     model_dirs = {
-        "SAM": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\SAM",
+        # "SAM": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\SAM",
         "nnUNet_2D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_2D",
         "nnUNet_3D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_3D",
+        # "2_slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\2_slices",
+        # "3_sllices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\3_slices",
+        "5_slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\5_slices",
+        # "7_slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\7_slices",
     }
 
-    out_dir = r"C:\Users\dell\Desktop\slice_dice_curves"
+    out_dir = r"C:\Users\dell\Desktop\slice_dice_curves4"
     # ===============================
 
     os.makedirs(out_dir, exist_ok=True)

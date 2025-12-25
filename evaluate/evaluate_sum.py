@@ -295,66 +295,66 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\WS\Desktop\20251224_Test40\test_data40\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\20251224_Test40\test_data40\labelsTs"
 
-    # cm
-    output_excel = r"C:\Users\WS\Desktop\20251224_Test40\Results_python\cm_eval_img.xlsx"
-    base_root = r"C:\Users\WS\Desktop\20251224_Test40\cm"
-    base_dict = {
-        # "Freeze_encoder_decoder": "encoder_decoder",
-        "Freeze_image_encoder": "image_encoder",
-        # "Freeze_mask_decoder": "mask_decoder",
-        # "TrainAll": "TrainAll"
-    }
-    x_lists = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
-    model_paths = {
-        f"{short}_{x}": os.path.join(
-            base_root,
-            base,
-            f"expand_{int(x)}cm" if x == 0 else f"expand_{x:.1f}cm"
-        )
-        for base, short in base_dict.items()
-        for x in x_lists
-    }
+    # # cm
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
+    # base_root = r"C:\Users\dell\Desktop\20251224_Test40\cm"
+    # base_dict = {
+    #     # "Freeze_encoder_decoder": "encoder_decoder",
+    #     # "Freeze_image_encoder": "image_encoder",
+    #     "Freeze_mask_decoder": "mask_decoder",
+    #     # "TrainAll": "TrainAll"
+    # }
+    # x_lists = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5]
+    # model_paths = {
+    #     f"{short}_{x}": os.path.join(
+    #         base_root,
+    #         base,
+    #         f"expand_{int(x)}cm" if x == 0 else f"expand_{x:.1f}cm"
+    #     )
+    #     for base, short in base_dict.items()
+    #     for x in x_lists
+    # }
 
     # # Num
-    # output_excel = r"C:\Users\WS\Desktop\20251224_Test40\Results_python\Num_eval.xlsx"
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Num_eval.xlsx"
     # model_paths = {
-    #     "2slices": r"C:\Users\WS\Desktop\20251224_Test40\Num_box_prompts\2_slices",
-    #     "3slices": r"C:\Users\WS\Desktop\20251224_Test40\Num_box_prompts\3_slices",
-    #     "5slices": r"C:\Users\WS\Desktop\20251224_Test40\Num_box_prompts\5_slices",
-    #     "7slices": r"C:\Users\WS\Desktop\20251224_Test40\Num_box_prompts\7_slices",
-    #     "all_slices": r"C:\Users\WS\Desktop\20251224_Test40\cm\Freeze_image_encoder\expand_0.5cm",
+    #     "2slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\2_slices",
+    #     "3slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\3_slices",
+    #     "5slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\5_slices",
+    #     "7slices": r"C:\Users\dell\Desktop\20251224_Test40\Num_box_prompts\7_slices",
+    #     "all_slices": r"C:\Users\dell\Desktop\20251224_Test40\cm\Freeze_image_encoder\expand_0.5cm",
     # }
 
-    # # Pos
-    # output_excel = r"C:\Users\WS\Desktop\20251224_Test40\Results_python\Pos_eval_random.xlsx"
-    # model_paths = {
-    #     # "middle_z": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
-    #     # "max_area": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\max_area_rep0",
-    #     # "middle_volume": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\mid_volume_rep0",
-    #     "25": r"C:\Users\WS\Desktop\220251224_Test40\Pos_box_prompts\random_rep25",
-    #     "104": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep104",
-    #     "114": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep114",
-    #     "142": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep142",
-    #     "228": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep228",
-    #     "250": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep250",
-    #     "281": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep281",
-    #     "654": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep654",
-    #     "754": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep754",
-    #     "759": r"C:\Users\WS\Desktop\20251224_Test40\Pos_box_prompts\random_rep759",
-    # }
+    # Pos
+    output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
+    model_paths = {
+        "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
+        "max_area": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\max_area_rep0",
+        "middle_volume": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\mid_volume_rep0",
+    #     "25": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep25",
+    #     "104": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep104",
+    #     "114": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep114",
+    #     "142": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep142",
+    #     "228": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep228",
+    #     "250": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep250",
+    #     "281": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep281",
+    #     "654": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep654",
+    #     "754": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep754",
+    #     "759": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep759",
+    }
 
-    # Baseline
-    # output_excel = r"C:\Users\WS\Desktop\20251224_Test40\Results_python\Baseline.xlsx"
+    # # Baseline
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Baseline.xlsx"
     # model_paths = {
-        # "nnUNet_2D": r"C:\Users\WS\Desktop\20251224_Test40\baseline\nnUNet_2D",
-        # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
-        # "SAM": r"C:\Users\WS\Desktop\20251224_Test40\SAM",
-        # "UNet": r"C:\Users\WS\Desktop\20251224_Test40\baseline\UNet",
-        # "Deeplabv3+": r"C:\Users\WS\Desktop\20251224_Test40\baseline\Deeplabv3+",
-        # "TransUNet": r"C:\Users\WS\Desktop\20251224_Test40\baseline\TransUNet",
-        # "SwinUNet": r"C:\Users\WS\Desktop\20251224_Test40\baseline\SwinUNet",
+    #     "nnUNet_2D": r"C:\Users\dell\Desktop\20251224_Test40\baseline\nnUNet_2d",
+    #     # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+    #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
+    #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
+    #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
+    #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
+    #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
         # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
         # "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
         # "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",

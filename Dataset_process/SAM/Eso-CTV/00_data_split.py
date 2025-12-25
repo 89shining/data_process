@@ -12,7 +12,7 @@ from pathlib import Path
 # =========================
 EXCEL_PATH = r"C:\Users\dell\Desktop\Eso-CTV\ESCC根治性靶区data.xlsx" # 数据excel表
 SHEET_NAME = 0
-OUT_DIR = Path(r"C:\Users\dell\Desktop\Eso-CTV\20251217")  # 数据划分文件保存
+OUT_DIR = Path(r"C:\Users\dell\Desktop\Eso-CTV\20251224")  # 数据划分文件保存
 
 SEED = 2025
 
@@ -134,7 +134,7 @@ def main():
     # =========================
     # 输出 Excel（两个 sheet）
     # =========================
-    out_xlsx = OUT_DIR / "train_test_split.xlsx"
+    out_xlsx = OUT_DIR / "train_test_split2.xlsx"
     with pd.ExcelWriter(out_xlsx, engine="openpyxl") as writer:
         train_df[[COL_ID, COL_NAME, COL_SUBSITE, COL_LN]].to_excel(
             writer, sheet_name="train", index=False
