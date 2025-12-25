@@ -87,6 +87,13 @@ def per_patient_mean_table(
     # 合并并按患者ID在列上求均值（跨实验）
     cat = pd.concat(frames, axis=0, sort=False)
     patient_means = cat.groupby(cat.index).mean(numeric_only=True)
+    # ===== 强制按患者编号数值排序（p_0, p_1, ..., p_39）=====
+    patient_means = (
+        patient_means
+        .assign(_pid_num=patient_means.index.str.extract(r"(\d+)").astype(int).values)
+        .sort_values("_pid_num")
+        .drop(columns="_pid_num")
+    )
 
     # 生成底部的 Mean / STD（对20位患者按列统计；/n-1）
     bottom_mean = patient_means.mean(axis=0, numeric_only=True)
@@ -123,7 +130,7 @@ def per_patient_mean_table(
 
 if __name__ == "__main__":
     # ======= 改这里：输入 Excel 路径 =======
-    input_file = r"C:\Users\WS\Desktop\Pos_eval_random.xlsx"
+    input_file = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval_random10.xlsx"
     # 不填 output_xlsx 会在同目录生成 *_per_patient.xlsx
     saved = per_patient_mean_table(
         input_xlsx=input_file,
