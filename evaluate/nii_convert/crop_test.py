@@ -47,8 +47,8 @@ def crop_mask(mask_path, save_mask_path):
 
 # ======================== 批处理目录结构 ========================
 
-input_dir = r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\2_slices"   # A 文件夹
-output_dir = r"D:\SAM\Esophagus\20251217\TestResult\demo\Num_box_prompts\2_slices"  # 输出 B 文件夹
+input_dir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\SAM_traindata2"   # A 文件夹
+output_dir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\SAM_traindata"  # 输出 B 文件夹
 os.makedirs(output_dir, exist_ok=True)
 
 # 找到所有 .nii.gz 文件

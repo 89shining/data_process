@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\20251224_Test40\test_data40\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\251231_analysis\labelsTr"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -327,12 +327,12 @@ if __name__ == "__main__":
     #     "all_slices": r"C:\Users\dell\Desktop\20251224_Test40\cm\Freeze_image_encoder\expand_0.5cm",
     # }
 
-    # Pos
-    output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
-    model_paths = {
-        "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
-        "max_area": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\max_area_rep0",
-        "middle_volume": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\mid_volume_rep0",
+    # # Pos
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
+    # model_paths = {
+    #     "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
+    #     "max_area": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\max_area_rep0",
+    #     "middle_volume": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\mid_volume_rep0",
     #     "25": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep25",
     #     "104": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep104",
     #     "114": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep114",
@@ -343,11 +343,11 @@ if __name__ == "__main__":
     #     "654": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep654",
     #     "754": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep754",
     #     "759": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep759",
-    }
+    # }
 
-    # # Baseline
-    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Baseline.xlsx"
-    # model_paths = {
+    # Baseline
+    output_excel = r"C:\Users\dell\Desktop\251231_analysis\Eval_traindata.xlsx"
+    model_paths = {
     #     "nnUNet_2D": r"C:\Users\dell\Desktop\20251224_Test40\baseline\nnUNet_2d",
     #     # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
     #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
@@ -356,10 +356,12 @@ if __name__ == "__main__":
     #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
     #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
         # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
-        # "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
-        # "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",
-        # "SAM_SIcrop": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_SIcrop"
-    # }
+        "SAM_traindata": r"C:\Users\dell\Desktop\251231_analysis\SAM_traindata",
+        # "noText": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\noText",
+        # "Text1": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text1",
+        # "Text_abbr": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text2",
+        # "Text_abbr_pre": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text3_pre"
+    }
 
     for name, path in model_paths.items():
         evaluate_model_combined(gtDir, path, name, output_excel)
