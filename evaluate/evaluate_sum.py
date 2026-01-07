@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\251231_analysis\labelsTr"
+    gtDir = r"C:\Users\dell\Desktop\Eso-CTV\202060105\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,17 +346,17 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\dell\Desktop\251231_analysis\Eval_traindata.xlsx"
+    output_excel = r"C:\Users\dell\Desktop\Eso-CTV\202060105\Eval.xlsx"
     model_paths = {
-    #     "nnUNet_2D": r"C:\Users\dell\Desktop\20251224_Test40\baseline\nnUNet_2d",
-    #     # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+        # "nnUNet_2D": r"C:\Users\dell\Desktop\20260104\nnUNet_Allvolume\2d",
+        "nnUNet": r"C:\Users\dell\Desktop\Eso-CTV\202060105\nnUNet",
     #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
     #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
     #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
     #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
     #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
         # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
-        "SAM_traindata": r"C:\Users\dell\Desktop\251231_analysis\SAM_traindata",
+        # "SAM_traindata": r"C:\Users\dell\Desktop\251231_analysis\SAM_traindata",
         # "noText": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\noText",
         # "Text1": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text1",
         # "Text_abbr": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text2",
