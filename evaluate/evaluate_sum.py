@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\Eso-CTV\202060105\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,10 +346,14 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\dell\Desktop\Eso-CTV\202060105\Eval.xlsx"
+    output_excel = r"C:\Users\dell\Desktop\SAM2data\inference_mask\Eval2_sam2-mask.xlsx"
     model_paths = {
         # "nnUNet_2D": r"C:\Users\dell\Desktop\20260104\nnUNet_Allvolume\2d",
-        "nnUNet": r"C:\Users\dell\Desktop\Eso-CTV\202060105\nnUNet",
+        "SAM2_6s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\6s_mask",
+        "SAM2_7s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\7s_mask",
+        "SAM2_8s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\8s_mask",
+        "SAM2_9s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\9s_mask",
+        "SAM2_10s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\10s_mask",
     #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
     #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
     #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
@@ -358,7 +362,7 @@ if __name__ == "__main__":
         # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
         # "SAM_traindata": r"C:\Users\dell\Desktop\251231_analysis\SAM_traindata",
         # "noText": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\noText",
-        # "Text1": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text1",
+        # "Text1_train": r"C:\Users\dell\Desktop\eso_text\110patient\251224\Traindata-test\Text1",
         # "Text_abbr": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text2",
         # "Text_abbr_pre": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text3_pre"
     }
