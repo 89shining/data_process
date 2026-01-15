@@ -12,19 +12,19 @@ from skimage import measure
 # =========================
 # 路径配置（按你自己的数据改）
 # =========================
-CSV_PATH = r"C:\Users\dell\Desktop\slice_wise_all_models.csv"
+CSV_PATH = r"C:\Users\WS\Desktop\Eso_statistics\slice_wise_all_models.csv"
 
-CT_DIR = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\imagesTs"
-GT_DIR = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
+CT_DIR = r"D:\SAM\Esophagus\20251217\TestResult\imagesTs"
+GT_DIR = r"D:\SAM\Esophagus\20251217\TestResult\labelsTs"
 
 MODEL_PRED_DIRS = {
-    "nnUNet_2D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_2D",
-    "nnUNet_3D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_3D",
-    "SAM": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\SAM",
+    "nnUNet_2D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_2D",
+    "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+    "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
 }
 
-OUT_ROOT = r"C:\Users\dell\Desktop\bad_slices_all_models"
-DICE_THRESHOLD = 0.7
+OUT_ROOT = r"C:\Users\WS\Desktop\Eso_statistics\bad_slices_0.8"
+DICE_THRESHOLD = 0.8
 
 # =========================
 # CT 窗宽窗位

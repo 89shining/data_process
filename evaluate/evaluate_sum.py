@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\20251224_Test40\test_data40\labelsTs"
+    gtDir = r"C:\Users\WS\Desktop\Esophagus\20251217\TestResult\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -328,11 +328,11 @@ if __name__ == "__main__":
     # }
 
     # Pos
-    output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
-    model_paths = {
-        "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
-        "max_area": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\max_area_rep0",
-        "middle_volume": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\mid_volume_rep0",
+    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
+    # model_paths = {
+    #     "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
+    #     "max_area": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\max_area_rep0",
+    #     "middle_volume": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\mid_volume_rep0",
     #     "25": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep25",
     #     "104": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep104",
     #     "114": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep114",
@@ -343,11 +343,11 @@ if __name__ == "__main__":
     #     "654": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep654",
     #     "754": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep754",
     #     "759": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\random_rep759",
-    }
+    # }
 
-    # # Baseline
-    # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Baseline.xlsx"
-    # model_paths = {
+    # Baseline
+    output_excel = r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\eval_iter2.xlsx"
+    model_paths = {
     #     "nnUNet_2D": r"C:\Users\dell\Desktop\20251224_Test40\baseline\nnUNet_2d",
     #     # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
     #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
@@ -355,11 +355,13 @@ if __name__ == "__main__":
     #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
     #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
     #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
-        # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
-        # "SAMMed3D_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_128",
-        # "SAM_noprompt": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_noprompt",
-        # "SAM_SIcrop": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\SAMMed3D_SIcrop"
-    # }
+    #     "iter2": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\box_predmask",
+        "iter2": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\expand_0.5cm_iter2",
+        # "iter4": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\expand_0.5cm_iter4",
+        # "iter5": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\expand_0.5cm_iter5",
+        # "nnUNet_box_0cm": r"C:\Users\WS\Desktop\202060105\nnUNet_box_0cm",
+        # "SAM_box_predmask": r"D:\SAM\Esophagus\20260104\box_predmask"
+    }
 
     for name, path in model_paths.items():
         evaluate_model_combined(gtDir, path, name, output_excel)

@@ -9,15 +9,17 @@ import matplotlib.pyplot as plt
 # =========================
 # 路径配置
 # =========================
-csv_path = r"C:\Users\dell\Desktop\slice_wise_all_models.csv"
+csv_path = r"C:\Users\WS\Desktop\Eso_statistics\slice_wise_all_models.csv"
 
 # 选择你要显示的模型（顺序就是显示顺序）
 MODEL_LIST = [
     "nnUNet_2D",
     "nnUNet_3D",
     "SAM",
-    "SAM_5slices",
     # "SAM_2slices",
+    # "SAM_3slices",
+    "SAM_5slices",
+    # "SAM_7slices",
 ]
 
 # =========================

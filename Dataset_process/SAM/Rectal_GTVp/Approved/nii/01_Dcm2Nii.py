@@ -80,14 +80,14 @@ def extract_mask(pa_path, rts_dir, mask_path, roi_name, ct_files_sorted):
 
 
 if __name__ == "__main__":
-    root_dir = r"C:\Users\dell\Desktop\compl\compl"
+    root_dir = r"D:\SAM\Esophagus\Extract_error\Rawdata"
     roi_name = "GTVp"
-    output_dir = r"C:\Users\dell\Desktop\test_nii"
+    output_dir = r"D:\SAM\Esophagus\Extract_error\Nii"
     os.makedirs(output_dir, exist_ok=True)
-    csv_path = "C:/Users/dell/Desktop/patient_id.csv"
+    csv_path = r"D:\SAM\Esophagus\Extract_error/patient_id.csv"
 
     palist = sorted(GetSubDirs(root_dir))
-    i = 20
+    i = 0
     patient_id = []
     for pa in palist:
         print(pa)
