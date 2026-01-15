@@ -51,7 +51,7 @@ def check_roi_in_patient(pa_path, roi_name, missing_list):
 
 if __name__ == "__main__":
     root_dir = r"C:\Users\dell\Desktop\Eso-CTV\Rawdata"
-    roi_name = "Heart"
+    roi_name = "SpinalCord+5mm"
 
     missing_patients = []
 

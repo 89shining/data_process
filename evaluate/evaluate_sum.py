@@ -346,14 +346,18 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\dell\Desktop\SAM2data\inference_mask\Eval2_sam2-mask.xlsx"
+    output_excel = r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\Eval2_sam2-nnunet-mask.xlsx"
     model_paths = {
         # "nnUNet_2D": r"C:\Users\dell\Desktop\20260104\nnUNet_Allvolume\2d",
-        "SAM2_6s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\6s_mask",
-        "SAM2_7s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\7s_mask",
-        "SAM2_8s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\8s_mask",
-        "SAM2_9s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\9s_mask",
-        "SAM2_10s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\10s_mask",
+        "SAM2_2s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\2s_mask_nnunet",
+        "SAM2_3s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\3s_mask_nnunet",
+        "SAM2_4s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\4s_mask_nnunet",
+        "SAM2_5s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\5s_mask_nnunet",
+        "SAM2_6s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\6s_mask_nnunet",
+        "SAM2_7s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\7s_mask_nnunet",
+        "SAM2_8s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\8s_mask_nnunet",
+        "SAM2_9s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\9s_mask_nnunet",
+        "SAM2_10s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\10s_mask_nnunet",
     #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
     #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
     #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",

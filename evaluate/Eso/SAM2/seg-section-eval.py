@@ -103,7 +103,7 @@ def run(gt_dir, pred_root, out_xlsx, strict_check=True):
     cfg_dirs = []
     for d in pred_root.iterdir():
         if d.is_dir():
-            m = re.fullmatch(r"(\d+)s_mask", d.name)
+            m = re.fullmatch(r"(\d+)s_mask.*", d.name)
             if m:
                 cfg_dirs.append((int(m.group(1)), d.name, d))
     cfg_dirs.sort(key=lambda x: x[0])
@@ -179,8 +179,8 @@ def run(gt_dir, pred_root, out_xlsx, strict_check=True):
 # ======================================================
 if __name__ == "__main__":
     GT_DIR = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"  # 放 CTV_XXX.nii.gz
-    PRED_ROOT = r"C:\Users\dell\Desktop\SAM2data\inference_mask"  # 里面有 2s_mask / 3s_mask / ...
-    OUT_XLSX = r"C:\Users\dell\Desktop\SAM2data\inference_mask\SAM2_DiceByDice1.xlsx"
+    PRED_ROOT = r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt"  # 里面有 2s_mask / 3s_mask / ...
+    OUT_XLSX = r"C:\Users\dell\Desktop\SAM2data\inference_mask\SAM2_nnUNet-Dice3d.xlsx"
 
     run(GT_DIR, PRED_ROOT, OUT_XLSX, strict_check=True)
 
