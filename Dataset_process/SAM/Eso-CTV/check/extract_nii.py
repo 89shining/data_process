@@ -87,7 +87,7 @@ def extract_mask(pa_path, rts_dir, mask_path, roi_name, ct_files_sorted):
 
 if __name__ == "__main__":
     root_dir = r"C:\Users\dell\Desktop\Eso-CTV\Rawdata"
-    roi_name = "GTVp"
+    roi_name = "CTV"
     output_dir = r"C:\Users\dell\Desktop\Eso-CTV\20260107_sta"
     os.makedirs(output_dir, exist_ok=True)
     csv_path = "C:/Users/dell/Desktop/patient_id.csv"
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     i = 20
     patient_id = []
     for pa in palist:
-        print(pa)
+        # print(pa)
         ct_files, rts_dir = GetFilesinFolder(pa)
         pa_path = pa
         new_name = f"p_{i}"
@@ -104,7 +104,7 @@ if __name__ == "__main__":
         sub_path = os.path.join(output_dir, new_name)
         os.makedirs(sub_path, exist_ok=True)
         image_path = os.path.join(sub_path, "image.nii.gz")
-        mask_path = os.path.join(sub_path, "GTVp.nii.gz")
+        mask_path = os.path.join(sub_path, "CTV.nii.gz")
         # 保存image
         ct_files_sorted = sort_ct_files(ct_files)
         convert_image_to_nii(ct_files_sorted, image_path)

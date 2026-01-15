@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\WS\Desktop\Esophagus\20251217\TestResult\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -327,7 +327,7 @@ if __name__ == "__main__":
     #     "all_slices": r"C:\Users\dell\Desktop\20251224_Test40\cm\Freeze_image_encoder\expand_0.5cm",
     # }
 
-    # Pos
+    # # Pos
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
     # model_paths = {
     #     "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
@@ -346,21 +346,29 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\eval_iter2.xlsx"
+    output_excel = r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\Eval2_sam2-nnunet-mask.xlsx"
     model_paths = {
-    #     "nnUNet_2D": r"C:\Users\dell\Desktop\20251224_Test40\baseline\nnUNet_2d",
-    #     # "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+        # "nnUNet_2D": r"C:\Users\dell\Desktop\20260104\nnUNet_Allvolume\2d",
+        "SAM2_2s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\2s_mask_nnunet",
+        "SAM2_3s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\3s_mask_nnunet",
+        "SAM2_4s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\4s_mask_nnunet",
+        "SAM2_5s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\5s_mask_nnunet",
+        "SAM2_6s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\6s_mask_nnunet",
+        "SAM2_7s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\7s_mask_nnunet",
+        "SAM2_8s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\8s_mask_nnunet",
+        "SAM2_9s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\9s_mask_nnunet",
+        "SAM2_10s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\10s_mask_nnunet",
     #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
     #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
     #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
     #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
     #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
-    #     "iter2": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\box_predmask",
-        "iter2": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\expand_0.5cm_iter2",
-        # "iter4": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\expand_0.5cm_iter4",
-        # "iter5": r"C:\Users\WS\Desktop\Esophagus\20260104\multi_iter\expand_0.5cm_iter5",
-        # "nnUNet_box_0cm": r"C:\Users\WS\Desktop\202060105\nnUNet_box_0cm",
-        # "SAM_box_predmask": r"D:\SAM\Esophagus\20260104\box_predmask"
+        # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
+        # "SAM_traindata": r"C:\Users\dell\Desktop\251231_analysis\SAM_traindata",
+        # "noText": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\noText",
+        # "Text1_train": r"C:\Users\dell\Desktop\eso_text\110patient\251224\Traindata-test\Text1",
+        # "Text_abbr": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text2",
+        # "Text_abbr_pre": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text3_pre"
     }
 
     for name, path in model_paths.items():
