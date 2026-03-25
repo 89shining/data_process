@@ -8,7 +8,7 @@ import pandas as pd
 from PIL import Image
 from tqdm import tqdm
 
-root_dir = "C:/Users/WS/Desktop/dataset"
+root_dir = r"D:\SAM\Rectal\CTV\146p\20251126\dataset\train"
 csv_path = os.path.join(root_dir, "pseudo_train_nii.csv")
 save_dir = os.path.join(root_dir, "pseudo_rgb_images")
 os.makedirs(save_dir, exist_ok=True)

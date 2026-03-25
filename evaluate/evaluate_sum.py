@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
+    gtDir = r"D:\SAM\Rectal\CTV\146p\20260316\Crop\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,19 +346,18 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\Eval2_sam2-nnunet-mask.xlsx"
+    output_excel = r"D:\SAM\Rectal\CTV\146p\20260316\Crop\Eval.xlsx"
     model_paths = {
-        # "nnUNet_2D": r"C:\Users\dell\Desktop\20260104\nnUNet_Allvolume\2d",
-        "SAM2_2s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\2s_mask_nnunet",
-        "SAM2_3s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\3s_mask_nnunet",
-        "SAM2_4s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\4s_mask_nnunet",
-        "SAM2_5s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\5s_mask_nnunet",
-        "SAM2_6s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\6s_mask_nnunet",
-        "SAM2_7s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\7s_mask_nnunet",
-        "SAM2_8s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\8s_mask_nnunet",
-        "SAM2_9s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\9s_mask_nnunet",
-        "SAM2_10s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\10s_mask_nnunet",
-    #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
+        "nnUNet_Crop": r"D:\SAM\Rectal\CTV\146p\20260316\Crop\nnUNet_crop",
+        # "nnUNet_2.5D": r"C:\Users\WS\Desktop\CTV\nnUNet 2.5d",
+        # "nnUNet_3D": r"C:\Users\WS\Desktop\CTV\nnUNet 3d",
+        # "SAM2_2s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\2s_mask_nnunet",
+        "SAM-nnunet-box": r"D:\SAM\Rectal\CTV\146p\20260316\Crop\SAM-nnunet-box",
+        "SAM-nnunet-mask": r"D:\SAM\Rectal\CTV\146p\20260316\Crop\SAM-nnunet-mask",
+        # "SAM_freeze_img": r"C:\Users\WS\Desktop\CTV\SAM_freeze_img",
+        # "SAM_freeze_img_lora": r"C:\Users\WS\Desktop\CTV\SAM_freeze_img_lora",
+        # "SAM_RGB_freeze_img": r"C:\Users\WS\Desktop\CTV\SAM_RGB_freeze_img",
+        # "SAM_RGB_freeze_img_lora": r"C:\Users\WS\Desktop\CTV\SAM_RGB_freeze_img_lora",
     #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
     #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
     #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",

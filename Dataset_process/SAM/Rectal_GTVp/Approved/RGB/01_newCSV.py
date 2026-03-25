@@ -5,7 +5,7 @@ import pandas as pd
 import os
 
 # 加载原始 CSV，没有列名则添加
-df = pd.read_csv("C:/Users/WS/Desktop/dataset/delete/p0_nii.csv", header=None, names=["image", "mask"])
+df = pd.read_csv(r"D:\SAM\Rectal\CTV\146p\20251126\dataset\train\delete\train_nii.csv", header=None, names=["image", "mask"])
 
 # 提取患者ID和切片编号
 df["patient"] = df["image"].str.extract(r"/(p_\d+)/")
@@ -40,4 +40,4 @@ for idx in df_sorted.index:
 
 df_sorted["nii_paths"] = [";".join(p) for p in triplet_paths]
 
-df_sorted[["image", "mask", "nii_paths"]].to_csv("C:/Users/WS/Desktop/dataset/pseudo_train_nii.csv", index=False)
+df_sorted[["image", "mask", "nii_paths"]].to_csv(r"D:\SAM\Rectal\CTV\146p\20251126\dataset\train\pseudo_train_nii.csv", index=False)

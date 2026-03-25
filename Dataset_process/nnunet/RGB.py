@@ -46,33 +46,31 @@ def create_pseudo_rgb_nii(image_nii_path, output_nii_path):
         pseudo_rgb_volume[:, :, z, 1] = volume[:, :, z1]
         pseudo_rgb_volume[:, :, z, 2] = volume[:, :, z2]
 
-    # 转换维度为 (H, W, D * 3) → 因为 RGB 通道 nnUNet 不支持，需要融合为单通道
-    # 我们转置为 (D, H, W, 3) → 再转换为 (H, W, D*3)
-    pseudo_rgb_volume = np.transpose(pseudo_rgb_volume, (3, 0, 1, 2))  # (D, H, W, 3)
+    pseudo_rgb_volume = np.transpose(pseudo_rgb_volume, (3, 0, 1, 2))
     # 保存为 NIfTI
     nib_img = nib.Nifti1Image(pseudo_rgb_volume, affine=affine, header=header)
     nib.save(nib_img, output_nii_path)
     print(f"✅ Saved pseudo-RGB nii.gz for nnU-Net: {output_nii_path}")
 
 # 示例调用（循环多个患者）
-input_root = "C:/Users/WS/Desktop/add"  # nii.gz原文件
-output_root = "C:/Users/WS/Desktop/dataset/nnUNet/Dataset002_RGB"
+input_root = "/home/wusi/SAMdata/Rectal/20250824_CTV/train_nii"  # nii.gz原文件
+output_root = "/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset010_RectalCTV"
 three_channels_root = os.path.join(output_root, "images")
 os.makedirs(output_root, exist_ok=True)
 os.makedirs(three_channels_root, exist_ok=True)
 
-palist = GetSubFolders(input_root)
-for pa in palist:
+pa_list = sorted(GetSubFolders(input_root), key=lambda x: int(x.split('_')[-1]))
+
+for pa in pa_list:
     print(pa)
-    nid = pa.split('_', -1)[-1]
+    nid = pa.split('_')[-1]
     input_path = os.path.join(input_root, pa, "image.nii.gz")
-    images_path = os.path.join(three_channels_root, f"RGB_{int(nid):03d}_0000.nii.gz")
-    print(images_path)
+    images_path = os.path.join(three_channels_root, f"CTV_{int(nid):03d}_0000.nii.gz")
+
     if os.path.exists(input_path):
         create_pseudo_rgb_nii(input_path, images_path)
     else:
         print(f"Missing image.nii.gz for {pa}")
-
 
 
 """
@@ -105,7 +103,7 @@ for filename in sorted(os.listdir(input_dir)):
         print(ch)
         out_data = data[ch]  # 第ch个通道， shape: (H, W, D)
         out_img = nib.Nifti1Image(out_data, affine=affine, header=header)
-        out_name = f"RGB_{base_id}_{ch:04d}.nii.gz"
+        out_name = f"CTV_{base_id}_{ch:04d}.nii.gz"
         print(out_name)
         out_path = os.path.join(single_channel_dir, out_name)
         nib.save(out_img, out_path)
@@ -114,20 +112,18 @@ for filename in sorted(os.listdir(input_dir)):
 
 
 """
-提取GTVp.nii.gz，俺Dataset格式改名
+提取CTV.nii.gz，俺Dataset格式改名
 """
 input_dir = input_root
 GT_dir = os.path.join(output_root, "labelsTr")
 os.makedirs(GT_dir, exist_ok=True)
 
-# 对pa列表按数字排序，确保顺序为p_0, p_1, ..., p_n
-pa_list = sorted(os.listdir(input_dir), key=lambda x: int(x.split('_')[1]))
 
-for idx, pa in enumerate(pa_list):
-    # print(pa)
-    GT_path = os.path.join(input_dir, pa, "GTVp.nii.gz")
+for pa in pa_list:
+    nid = int(pa.split('_')[-1])
+    GT_path = os.path.join(input_dir, pa, "CTV.nii.gz")
     if os.path.exists(GT_path):
-        output_name = f"RGB_{idx:03d}.nii.gz"
+        output_name = f"CTV_{nid:03d}.nii.gz"
         # print(output_name)
         output_path = os.path.join(GT_dir, output_name)
         shutil.copy(GT_path, output_path)

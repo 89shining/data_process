@@ -10,8 +10,8 @@ import csv
 # =========================
 # 配置路径
 # =========================
-DATA_ROOT = r"D:\SAM\Esophagus\Extract_error\Nii"
-MASK_NAME = "GTV.nii.gz"
+DATA_ROOT = r"C:\Users\WS\Desktop\Esophagus\test_10p\Nii"
+MASK_NAME = "CTV.nii.gz"
 
 # =========================
 # 核心检测函数
