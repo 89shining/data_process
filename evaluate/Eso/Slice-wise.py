@@ -83,19 +83,20 @@ def plot_slice_dice_curve(case_id, gt_path, model_paths, save_png):
 if __name__ == "__main__":
 
     # ======== 改这 3 个路径 ========
-    gt_dir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
+    gt_dir = r"C:\Users\dell\Desktop\Eso-CTV\20260319\labelsTs"
 
     model_dirs = {
         # "SAM": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\SAM",
-        "nnUNet_2D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_2D",
-        "nnUNet_3D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_3D",
+        # "nnUNet_2D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_2D",
+        "nnUNet_3D": r"C:\Users\dell\Desktop\Eso-CTV\20260319\nnunet 3d",
         # "2_slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\2_slices",
         # "3_sllices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\3_slices",
-        "5_slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\5_slices",
+        # "5_slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\5_slices",
         # "7_slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\7_slices",
+        "SAM2": r"C:\Users\dell\Desktop\Eso-CTV\20260319\testresult",
     }
 
-    out_dir = r"C:\Users\dell\Desktop\slice_dice_curves4"
+    out_dir = r"C:\Users\dell\Desktop\Eso-CTV\20260319\slice_dice_curves"
     # ===============================
 
     os.makedirs(out_dir, exist_ok=True)

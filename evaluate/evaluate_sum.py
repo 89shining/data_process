@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
+    gtDir = r"C:\Users\dell\Desktop\pre-test\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,29 +346,32 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\Eval2_sam2-nnunet-mask.xlsx"
+    output_excel = r"C:\Users\dell\Desktop\pre-test\Eval_three_mask_prompt.xlsx"
     model_paths = {
-        # "nnUNet_2D": r"C:\Users\dell\Desktop\20260104\nnUNet_Allvolume\2d",
-        "SAM2_2s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\2s_mask_nnunet",
-        "SAM2_3s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\3s_mask_nnunet",
-        "SAM2_4s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\4s_mask_nnunet",
-        "SAM2_5s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\5s_mask_nnunet",
-        "SAM2_6s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\6s_mask_nnunet",
-        "SAM2_7s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\7s_mask_nnunet",
-        "SAM2_8s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\8s_mask_nnunet",
-        "SAM2_9s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\9s_mask_nnunet",
-        "SAM2_10s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\10s_mask_nnunet",
-    #     # "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
-    #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
+        # "ChannelPrior": r"D:\eso_text\T-130patient\20260320\ChannelPrior",
+        "three-mask_0": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_0\three_mask_prompt",
+        "three-mask_1": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_1\three_mask_prompt",
+        "three-mask_3": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_3\three_mask_prompt",
+        "three-mask_5": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_5\three_mask_prompt",
+        "three-mask_7": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_7\three_mask_prompt",
+        # "Three-mask_crop": r"C:\Users\dell\Desktop\pre-test\three_mask_prompt_crop",
+        # "nnUNet_3d": r"C:\Users\dell\Desktop\pre-test\nnunet3d",
+        # "nnUNet_2.5d": r"D:\WUSI\SAM\CTV\nnUNet 2.5d",
+        # "SAM_freeze_img": r"D:\WUSI\SAM\CTV\SAM_freeze_img",
+        # "SAM_freeze_img_lora": r"D:\WUSI\SAM\CTV\SAM_freeze_img_lora",
+        # "SAM_single_freeze_img": r"D:\WUSI\SAM\CTV\SAM_single_freeze_img",
+        # "SAM2": r"C:\Users\dell\Desktop\Eso-CTV\20260319\testresult",
+    #     "UNet": r"C:\Users\dell\Desktop\eso_text\T-160patient\nnUNet\Tr_predict",
     #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
     #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
     #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
         # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
-        # "SAM_traindata": r"C:\Users\dell\Desktop\251231_analysis\SAM_traindata",
-        # "noText": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\noText",
-        # "Text1_train": r"C:\Users\dell\Desktop\eso_text\110patient\251224\Traindata-test\Text1",
-        # "Text_abbr": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text2",
-        # "Text_abbr_pre": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text3_pre"
+        # "Eso_SAM2": r"C:\Users\dell\Desktop\Eso-CTV\20260319\testresult",
+        # "Zsequence_4": r"D:\eso_text\T-130patient\20260320\Zsequence_4",
+        # "prior_raw": r"D:\eso_text\T-130patient\20260320\ChannelPrior",
+        # "prior__D_trim020": r"D:\eso_text\T-130patient\20260320\post-analysis\postprocess_multi\prior__D_trim020",
+        # "zseq4_raw": r"D:\eso_text\T-130patient\20260320\Zsequence_4",
+        # "zseq4__E_trim015_len25": r"D:\eso_text\T-130patient\20260320\post-analysis\postprocess_multi\zseq4__E_trim015_len25",
     }
 
     for name, path in model_paths.items():
