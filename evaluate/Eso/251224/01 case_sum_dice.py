@@ -22,19 +22,19 @@ def dice_coef(pred, gt, smooth=1e-5):
 # =========================
 # 路径配置（你只需要改这里）
 # =========================
-gt_dir = r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\labelsTs"
+gt_dir = r"D:\SAM\Esophagus\20251217\TestResult\labelsTs"
 
 model_dirs = {
-    "nnUNet_2D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_2D",
-    "nnUNet_3D": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\nnUNet_3D",
-    "SAM": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\SAM",
-    "SAM_2slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\2_slices",
-    "SAM_3slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\3_slices",
-    "SAM_5slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\5_slices",
-    "SAM_7slices": r"C:\Users\dell\Desktop\Eso-CTV\TestResult\TestResult\Num_box_prompts\7_slices",
+    "nnUNet_2D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_2D",
+    "nnUNet_3D": r"D:\SAM\Esophagus\20251217\TestResult\nnUNet_3D",
+    "SAM": r"D:\SAM\Esophagus\20251217\TestResult\SAM",
+    "SAM_2slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\2_slices",
+    "SAM_3slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\3_slices",
+    "SAM_5slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\5_slices",
+    "SAM_7slices": r"D:\SAM\Esophagus\20251217\TestResult\Num_box_prompts\7_slices",
 }
 
-out_csv = r"C:\Users\dell\Desktop\slice_wise_all_models.csv"
+out_csv = r"C:\Users\WS\Desktop\Eso_statistics\slice_wise_all_models.csv"
 
 # =========================
 # 主逻辑

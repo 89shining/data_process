@@ -28,42 +28,56 @@
 # print("\n全部重命名完成！")
 
 
-# 改_xxx LLM
+# # 改_xxx LLM
+# import os
+#
+# # === 修改为你的文件夹路径 ===
+# folder = r"C:\Users\dell\Desktop\ESOTEXT\text2-preck"   # 或 "/home/wusi/.../folder"
+#
+# for fname in os.listdir(folder):
+#     old_path = os.path.join(folder, fname)
+#
+#     # 跳过子目录
+#     if not os.path.isfile(old_path):
+#         continue
+#
+#     # -------- 1. 去掉常见后缀 --------
+#     base = fname
+#     if base.endswith(".nii.gz"):
+#         base = base[:-7]
+#     elif base.endswith(".nii"):
+#         base = base[:-4]
+#
+#     # -------- 2. 去掉 "_" 后面的部分（如 noText）--------
+#     if "_" in base:
+#         base = base.split("_")[0]
+#
+#     # -------- 3. 仅保留数字部分 --------
+#     # （如果你文件夹中只有数字，可以省略此检查）
+#     number = ''.join(filter(str.isdigit, base))
+#     if number == "":
+#         print(f"跳过：{fname}（找不到数字）")
+#         continue
+#
+#     # -------- 4. 拼接新的名字：GTV_数字.nii.gz --------
+#     new_name = f"GTV_{number}.nii.gz"
+#     new_path = os.path.join(folder, new_name)
+#
+#     print(f"Renaming: {fname} --> {new_name}")
+#
+#     os.rename(old_path, new_path)
+#
+
 import os
 
-# === 修改为你的文件夹路径 ===
-folder = r"C:\Users\dell\Desktop\ESOTEXT\text2-preck"   # 或 "/home/wusi/.../folder"
+root = r"C:\Users\WS\Desktop\20251224_Test40\cm"
 
-for fname in os.listdir(folder):
-    old_path = os.path.join(folder, fname)
+for dirpath, _, filenames in os.walk(root):
+    for fname in filenames:
+        if fname.startswith("CTV") and (fname.endswith(".nii") or fname.endswith(".nii.gz")):
+            old_path = os.path.join(dirpath, fname)
+            new_name = "GTVp" + fname[len("CTV"):]
+            new_path = os.path.join(dirpath, new_name)
 
-    # 跳过子目录
-    if not os.path.isfile(old_path):
-        continue
-
-    # -------- 1. 去掉常见后缀 --------
-    base = fname
-    if base.endswith(".nii.gz"):
-        base = base[:-7]
-    elif base.endswith(".nii"):
-        base = base[:-4]
-
-    # -------- 2. 去掉 "_" 后面的部分（如 noText）--------
-    if "_" in base:
-        base = base.split("_")[0]
-
-    # -------- 3. 仅保留数字部分 --------
-    # （如果你文件夹中只有数字，可以省略此检查）
-    number = ''.join(filter(str.isdigit, base))
-    if number == "":
-        print(f"跳过：{fname}（找不到数字）")
-        continue
-
-    # -------- 4. 拼接新的名字：GTV_数字.nii.gz --------
-    new_name = f"GTV_{number}.nii.gz"
-    new_path = os.path.join(folder, new_name)
-
-    print(f"Renaming: {fname} --> {new_name}")
-
-    os.rename(old_path, new_path)
-
+            print(f"{old_path}  -->  {new_path}")
+            os.rename(old_path, new_path)

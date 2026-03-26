@@ -6,7 +6,7 @@ import os
 import pandas as pd
 
 # 根目录路径
-root_dir = "C:/Users/WS/Desktop/dataset"
+root_dir = r"D:\SAM\Rectal\CTV\146p\20251126\dataset\train"
 pseudo_dir = os.path.join(root_dir, "pseudo_rgb_images")
 mask_dir = os.path.join(root_dir, "masks")
 
@@ -34,7 +34,7 @@ for patient_id in sorted(os.listdir(pseudo_dir), key=lambda x: int(x.lstrip("p_"
 
 # 构造 DataFrame 并保存
 df = pd.DataFrame(records)
-csv_path = os.path.join(root_dir, "test_pseudo_rgb.csv")
+csv_path = os.path.join(root_dir, "train_pseudo_rgb.csv")
 df = pd.DataFrame(records, columns=["image", "mask"])
 df.to_csv(csv_path, index=False, header=False)
 
