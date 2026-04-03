@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"C:\Users\dell\Desktop\pre-test\labelsTs"
+    gtDir = r"D:\eso_text\T-130patient\20260320\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,16 +346,17 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"C:\Users\dell\Desktop\pre-test\Eval_three_mask_prompt.xlsx"
+    output_excel = r"D:\eso_text\T-130patient\20260320\Eval_nnunet_2.xlsx"
     model_paths = {
         # "ChannelPrior": r"D:\eso_text\T-130patient\20260320\ChannelPrior",
-        "three-mask_0": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_0\three_mask_prompt",
-        "three-mask_1": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_1\three_mask_prompt",
-        "three-mask_3": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_3\three_mask_prompt",
-        "three-mask_5": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_5\three_mask_prompt",
-        "three-mask_7": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_7\three_mask_prompt",
+        # "ChannelPrior_2": r"D:\eso_text\T-130patient\20260320\ChannelPrior_2",
+        # "ChannelPrior_3": r"D:\eso_text\T-130patient\20260320\ChannelPrior_3",
+        # "ChannelPrior_4": r"D:\eso_text\T-130patient\20260320\ChannelPrior_4",
+        # "three-mask_7": r"C:\Users\dell\Desktop\pre-test\gt_expand_experiments\expand_7\three_mask_prompt",
         # "Three-mask_crop": r"C:\Users\dell\Desktop\pre-test\three_mask_prompt_crop",
-        # "nnUNet_3d": r"C:\Users\dell\Desktop\pre-test\nnunet3d",
+        "nnunet_2": r"D:\eso_text\T-130patient\20260320\nnunet_2",
+        # "nnunet_crop_box_prompt": r"C:\Users\dell\Desktop\Rectal-20260325\nnunet_crop_box_prompt",
+        # "nnunet_crop_mask_prompt": r"C:\Users\dell\Desktop\Rectal-20260325\nnunet_crop_mask_prompt",
         # "nnUNet_2.5d": r"D:\WUSI\SAM\CTV\nnUNet 2.5d",
         # "SAM_freeze_img": r"D:\WUSI\SAM\CTV\SAM_freeze_img",
         # "SAM_freeze_img_lora": r"D:\WUSI\SAM\CTV\SAM_freeze_img_lora",
