@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\SAM\Rectal\CTV\146p\20260316\Crop\labelsTs"
+    gtDir = r"D:\SAM\Rectal\CTV\146p\20260325\labelsTs_all"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,14 +346,15 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"D:\SAM\Rectal\CTV\146p\20260316\Crop\Eval.xlsx"
+    output_excel = r"D:\SAM\Rectal\CTV\146p\20260325\Eval.xlsx"
     model_paths = {
-        "nnUNet_Crop": r"D:\SAM\Rectal\CTV\146p\20260316\Crop\nnUNet_crop",
+        "nnUNet_All": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_all",
+        # "nnUNet_Crop": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_crop",
         # "nnUNet_2.5D": r"C:\Users\WS\Desktop\CTV\nnUNet 2.5d",
         # "nnUNet_3D": r"C:\Users\WS\Desktop\CTV\nnUNet 3d",
         # "SAM2_2s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\2s_mask_nnunet",
-        "SAM-nnunet-box": r"D:\SAM\Rectal\CTV\146p\20260316\Crop\SAM-nnunet-box",
-        "SAM-nnunet-mask": r"D:\SAM\Rectal\CTV\146p\20260316\Crop\SAM-nnunet-mask",
+        # "SAM-nnunet-box": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_crop_box_prompt",
+        # "SAM-nnunet-mask": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_crop_mask_prompt",
         # "SAM_freeze_img": r"C:\Users\WS\Desktop\CTV\SAM_freeze_img",
         # "SAM_freeze_img_lora": r"C:\Users\WS\Desktop\CTV\SAM_freeze_img_lora",
         # "SAM_RGB_freeze_img": r"C:\Users\WS\Desktop\CTV\SAM_RGB_freeze_img",
