@@ -50,7 +50,7 @@ PRED_ROOT_FULLSIZE = (
 # nnUNet inference config (fixed to fold1)
 IMAGE_SUFFIX = "_0000"
 GT_THRESHOLD = 0.0
-DATASET_ID = "008"
+DATASET_ID = "013"
 CONFIG = "3d_fullres"
 FOLD = "0"
 PREDICT_CMD = "nnUNetv2_predict"

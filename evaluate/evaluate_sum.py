@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\SAM\Rectal\CTV\146p\20260325\labelsTs_all"
+    gtDir = r"D:\SAM\Rectal\CTV\146p\20260325\TestResults\labelsTs_crop"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,9 +346,10 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"D:\SAM\Rectal\CTV\146p\20260325\Eval.xlsx"
+    output_excel = r"D:\SAM\Rectal\CTV\146p\20260401\Eval.xlsx"
     model_paths = {
-        "nnUNet_All": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_all",
+        "P_promptencoder": r"D:\SAM\Rectal\CTV\146p\20260401\Probability_prompt_encoder",
+        "PxU_promptencoder": r"D:\SAM\Rectal\CTV\146p\20260401\PU_prompt_encoder",
         # "nnUNet_Crop": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_crop",
         # "nnUNet_2.5D": r"C:\Users\WS\Desktop\CTV\nnUNet 2.5d",
         # "nnUNet_3D": r"C:\Users\WS\Desktop\CTV\nnUNet 3d",
