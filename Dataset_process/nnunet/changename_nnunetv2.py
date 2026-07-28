@@ -32,29 +32,29 @@ def GetSubFolders(file_dir):
 
 if __name__ == "__main__":
 
-    ctdir = r'/home/wusi/SAMdata/Rectal/20251224_GTVp/datanii/test_nii'   # 训练集 nii目录
-    imadir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset001_GTVp/imagesTs'    # 训练 images保存地址
-    maskdir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset001_GTVp/labelsTs'   # 训练 masks保存地址
-    os.makedirs(imadir, exist_ok = True)
+    ctdir = r'C:\Users\dell\Downloads\Crop_process\Crop_process\train_nii'   # 训练集 nii目录
+    # imadir = r'C:\Users\dell\Downloads\RectalCTV_All\imagesTr'    # 训练 images保存地址
+    maskdir = r'C:\Users\dell\Downloads\RectalCTV_All\labelsTr'   # 训练 masks保存地址
+    # os.makedirs(imadir, exist_ok = True)
     os.makedirs(maskdir, exist_ok = True)
-
-    dataset_name = "GTVp"  # 数据集名称
+    #
+    dataset_name = "CTV"  # 数据集名称
     palist = GetSubFolders(ctdir)
     for pa in palist:
         print(pa)
         nid = pa.split('_', -1)[-1]    # 用_做分割，取最后一位元素即患者编号
-        srcfile = ctdir + '/' + pa + '/image.nii.gz'       # 获取患者图像文件
-        dstfile = f"{imadir}/{dataset_name}_{int(nid):03d}_0000.nii.gz"    # 构建新文件
-        print(dstfile)
-        shutil.copy(srcfile, dstfile)      # 文件复制
+        # srcfile = ctdir + '/' + pa + '/image.nii.gz'       # 获取患者图像文件
+        # dstfile = f"{imadir}/{dataset_name}_{int(nid):03d}_0000.nii.gz"    # 构建新文件
+        # print(dstfile)
+        # shutil.copy(srcfile, dstfile)      # 文件复制
 
-        srcfile = ctdir + '/' + pa + '/GTVp.nii.gz'   # 获取患者mask GT文件地址
+        srcfile = ctdir + '/' + pa + '/CTV.nii.gz'   # 获取患者mask GT文件地址
         dstfile = f"{maskdir}/{dataset_name}_{int(nid):03d}.nii.gz"
         shutil.copy(srcfile, dstfile)  # 文件复制
 
-    # ctdir = r'/home/wusi/SAMdata/Eso-CTV/20251217/cropnii_nnUNet/test_nii'   # 测试集 nii目录
-    # imadir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p/imagesTs'   # 测试 images保存地址
-    # maskdir = r'/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p/labelsTs'      # 测试 masks保存地址，可选
+    # ctdir = r'C:\Users\dell\Downloads\Crop_process\Crop_process\test_nii'   # 测试集 nii目录
+    # imadir = r'C:\Users\dell\Downloads\RectalCTV_All\imagesTs'   # 测试 images保存地址
+    # maskdir = r'C:\Users\dell\Downloads\RectalCTV_All\labelsTs'      # 测试 masks保存地址，可选
     # os.makedirs(imadir, exist_ok=True)
     # os.makedirs(maskdir, exist_ok=True)
     #

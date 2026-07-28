@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 # 数据集路径
-dataset_dir = Path(r"/home/wusi/nnUNet/nnUNetFrame/DATASET/nnUNet_raw/Dataset008_EsoCTV73p")
+dataset_dir = Path(r"C:\Users\dell\Downloads\RectalCTV_All")
 images_tr_dir = dataset_dir / "imagesTr"
 
 # 自动提取模态编号和病例数

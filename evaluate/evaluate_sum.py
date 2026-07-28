@@ -295,7 +295,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\SAM\Rectal\CTV\146p\20260325\TestResults\labelsTs_crop"
+    gtDir = r"D:\eso_text\T-130patient\20260707\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -327,7 +327,7 @@ if __name__ == "__main__":
     #     "all_slices": r"C:\Users\dell\Desktop\20251224_Test40\cm\Freeze_image_encoder\expand_0.5cm",
     # }
 
-    # # Pos
+    # Pos
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\Pos_eval.xlsx"
     # model_paths = {
     #     "middle_z": r"C:\Users\dell\Desktop\20251224_Test40\Pos_box_prompts\middle_z_rep0",
@@ -346,30 +346,21 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"D:\SAM\Rectal\CTV\146p\20260401\Eval.xlsx"
+    output_excel = r"D:\eso_text\T-130patient\20260707\Eval_Zsequence.xlsx"
     model_paths = {
-        "P_promptencoder": r"D:\SAM\Rectal\CTV\146p\20260401\Probability_prompt_encoder",
-        "PxU_promptencoder": r"D:\SAM\Rectal\CTV\146p\20260401\PU_prompt_encoder",
-        # "nnUNet_Crop": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_crop",
-        # "nnUNet_2.5D": r"C:\Users\WS\Desktop\CTV\nnUNet 2.5d",
-        # "nnUNet_3D": r"C:\Users\WS\Desktop\CTV\nnUNet 3d",
-        # "SAM2_2s": r"C:\Users\dell\Desktop\SAM2data\inference_mask\nnUNet-prompt\2s_mask_nnunet",
-        # "SAM-nnunet-box": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_crop_box_prompt",
-        # "SAM-nnunet-mask": r"D:\SAM\Rectal\CTV\146p\20260325\nnunet_crop_mask_prompt",
-        # "SAM_freeze_img": r"C:\Users\WS\Desktop\CTV\SAM_freeze_img",
-        # "SAM_freeze_img_lora": r"C:\Users\WS\Desktop\CTV\SAM_freeze_img_lora",
-        # "SAM_RGB_freeze_img": r"C:\Users\WS\Desktop\CTV\SAM_RGB_freeze_img",
-        # "SAM_RGB_freeze_img_lora": r"C:\Users\WS\Desktop\CTV\SAM_RGB_freeze_img_lora",
-    #     "UNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\UNet",
-    #     "Deeplabv3+": r"C:\Users\dell\Desktop\20251224_Test40\baseline\Deeplabv3+",
-    #     "TransUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\TransUNet",
-    #     "SwinUNet": r"C:\Users\dell\Desktop\20251224_Test40\baseline\SwinUNet",
-        # "nnUNet3d_128": r"D:\SAM\Esophagus\20251127\Sam3D\20251209\nnUNet3d_128",
-        # "SAM_traindata": r"C:\Users\dell\Desktop\251231_analysis\SAM_traindata",
-        # "noText": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\noText",
-        # "Text1_train": r"C:\Users\dell\Desktop\eso_text\110patient\251224\Traindata-test\Text1",
-        # "Text_abbr": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text2",
-        # "Text_abbr_pre": r"C:\Users\dell\Desktop\eso_text\110patient\251224\EsoResults\Text3_pre"
+        "Zsequence_1": r"D:\eso_text\T-130patient\20260707\Zsequence_1",
+        "Zsequence_2": r"D:\eso_text\T-130patient\20260707\Zsequence_2",
+        "Zsequence_3": r"D:\eso_text\T-130patient\20260707\Zsequence_3",
+        "Zsequence_4": r"D:\eso_text\T-130patient\20260707\Zsequence_4",
+        # "Nii_2": r"D:\eso_text\T-130patient\nnUNet_text\TestResults_2\Postprocess\Nii_2",
+        # "ZOccupancy": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\ZOccupancy",
+        # "ZOccupancy_Length": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\ZOccupancy_LengthConstraint",
+        # "ZBoundaryPenalty": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\ZBoundaryPenalty",
+        # "AllStage_Location": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\AllStage_Location",
+        # "AllStage_LL": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\AllStage_LL",
+        # "SingleStage_Location": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\SingleStage_Location",
+        # "SingleStage_LL": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\SingleStage_LL",
+        # "Baseline": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\Baseline",
     }
 
     for name, path in model_paths.items():

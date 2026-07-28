@@ -48,8 +48,8 @@ def crop_ct_and_mask(ct_path, mask_path, save_ct_path, save_mask_path):
 
 
 # =============== 批处理 ===============
-root_dir = r"D:\SAM\Rectal\CTV\146p\20251126\datanii\test_nii"  # <-- 你的 p_001/p_002/... 的上级目录
-output_root = r"D:\SAM\Rectal\CTV\146p\20260316\Cropdatanii\test_nii"   # 最终统一保存的位置
+root_dir = r"/home/intern/ftp/wusi/nnUNet_SAM2/nnUNetFrame/DATASET/nnUNet_raw/Dataset001_Eso83pAll/datanii/train_nii"  # <-- 你的 p_001/p_002/... 的上级目录
+output_root = r"/home/intern/ftp/wusi/nnUNet_SAM2/nnUNetFrame/DATASET/nnUNet_raw/Dataset002_Eso83pCrop/datanii/train_nii"   # 最终统一保存的位置
 os.makedirs(output_root, exist_ok=True)
 
 patient_dirs = sorted([
