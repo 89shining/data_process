@@ -75,8 +75,10 @@ def evaluate_model_combined(gt_dir, pred_dir, sheet_name, output_excel):
     records = []
     cases = sorted([f for f in os.listdir(pred_dir) if f.endswith(".nii.gz")])
 
-    for idx, case_file in enumerate(cases):
-        case_id = f"p_{idx}"
+    for case_file in cases:
+        case_stem = case_file.removesuffix(".nii.gz")
+        case_number_match = re.search(r"_(\d+)$", case_stem)
+        case_id = f"p_{int(case_number_match.group(1))}" if case_number_match else case_stem
         pred_path = os.path.join(pred_dir, case_file)
         gt_path = os.path.join(gt_dir, case_file)
         if not os.path.exists(gt_path):
@@ -129,8 +131,16 @@ def evaluate_model_combined(gt_dir, pred_dir, sheet_name, output_excel):
             pred_array = (sitk.GetArrayFromImage(pred_img) > 0).astype(np.uint8)
             spacing = gt_img.GetSpacing()
             try:
-                asd_voxel = metric.binary.asd(pred_array, gt_array)
-                asd_val = round(asd_voxel * np.mean(spacing), 2)
+                # SimpleITK spacing 为 (x, y, z)，NumPy 数组为 (z, y, x)
+                spacing_zyx = spacing[::-1]
+                asd_val = round(
+                    metric.binary.assd(
+                        pred_array,
+                        gt_array,
+                        voxelspacing=spacing_zyx
+                    ),
+                    2
+                )
             except Exception:
                 asd_val = 0.0
 
@@ -295,7 +305,7 @@ def generate_summary_mean_sheet(output_excel):
 # ==========================================================
 
 if __name__ == "__main__":
-    gtDir = r"D:\eso_text\T-130patient\20260707\labelsTs"
+    gtDir = r"D:\A-project\Prostate\nnUNet\TestResults_Seminal\CTV1\labelsTs"
 
     # # cm
     # output_excel = r"C:\Users\dell\Desktop\20251224_Test40\Results_python\cm_eval_mask.xlsx"
@@ -346,21 +356,11 @@ if __name__ == "__main__":
     # }
 
     # Baseline
-    output_excel = r"D:\eso_text\T-130patient\20260707\Eval_Zsequence.xlsx"
+    output_excel = r"D:\A-project\Prostate\nnUNet\TestResults_Seminal\CTV1\Eval——sum.xlsx"
     model_paths = {
-        "Zsequence_1": r"D:\eso_text\T-130patient\20260707\Zsequence_1",
-        "Zsequence_2": r"D:\eso_text\T-130patient\20260707\Zsequence_2",
-        "Zsequence_3": r"D:\eso_text\T-130patient\20260707\Zsequence_3",
-        "Zsequence_4": r"D:\eso_text\T-130patient\20260707\Zsequence_4",
-        # "Nii_2": r"D:\eso_text\T-130patient\nnUNet_text\TestResults_2\Postprocess\Nii_2",
-        # "ZOccupancy": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\ZOccupancy",
-        # "ZOccupancy_Length": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\ZOccupancy_LengthConstraint",
-        # "ZBoundaryPenalty": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\ZBoundaryPenalty",
-        # "AllStage_Location": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\AllStage_Location",
-        # "AllStage_LL": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\AllStage_LL",
-        # "SingleStage_Location": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\SingleStage_Location",
-        # "SingleStage_LL": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\SingleStage_LL",
-        # "Baseline": r"D:\eso_text\T-130patient\nnUNet_text\TestResults\Postprocess\Baseline",
+        "No": r"D:\A-project\Prostate\nnUNet\TestResults_Seminal\CTV1\TestResults_category\no",
+        "Yes": r"D:\A-project\Prostate\nnUNet\TestResults_Seminal\CTV1\TestResults_category\yes",
+        # "nnUNet_crop": r"D:\A-project\Rectal\CTV\146p\Revise_SAM2\nnunet_crop_5folds",
     }
 
     for name, path in model_paths.items():
