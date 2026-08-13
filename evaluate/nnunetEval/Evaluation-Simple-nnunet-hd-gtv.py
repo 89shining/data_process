@@ -225,7 +225,7 @@ if __name__ == "__main__":
     # gtDir = r'F:\Challenge\Dataset001_Rectum\labelsTs100'
     # predDir = '/data1/zhangyimeng/3dmodelBDSZ/resultsCrop'
     # predDir = r'F:\LITS\LITS\result_nnunet3d_liverprompt'
-    predDir = r'D:\eso_XJH\T-260716\TestResults\Eso_fine4'
+    predDir = r'D:\eso_XJH\T-260716\TestResults\Eso_fine4_pixel'
     # filename = 'F:/Challenge/3dmodelRectumCTV/Unet_Dice.csv'
 
     #
