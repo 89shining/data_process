@@ -3,6 +3,10 @@ import os
 import SimpleITK as sitk
 from medpy import metric
 from surface_distance.metrics import compute_surface_distances, compute_robust_hausdorff, compute_average_surface_distance
+import numpy as np
+
+if not hasattr(np, "Inf"):
+    np.Inf = np.inf
 
 # 评价标准 DICE
 
@@ -221,11 +225,11 @@ if __name__ == "__main__":
     # filename = 'E:/multi-time/result-3min.csv'
 
     # gtDir = r'F:\Challenge\Dataset001_Rectum\labelsTr'
-    gtDir = r'D:\eso_XJH\T-260716\TestResults\labelsTs_4'
+    gtDir = r'D:\WUSI\Eso\Test\labelsTs'
     # gtDir = r'F:\Challenge\Dataset001_Rectum\labelsTs100'
     # predDir = '/data1/zhangyimeng/3dmodelBDSZ/resultsCrop'
     # predDir = r'F:\LITS\LITS\result_nnunet3d_liverprompt'
-    predDir = r'D:\eso_XJH\T-260716\TestResults\Eso_fine4_pixel'
+    predDir = r'D:\WUSI\Eso\Test\exp10'
     # filename = 'F:/Challenge/3dmodelRectumCTV/Unet_Dice.csv'
 
     #
@@ -270,7 +274,8 @@ if __name__ == "__main__":
         number_groups = re.findall(r"\d+", pa)
         if not number_groups:
             raise ValueError(f"无法从文件名中提取患者编号: {pa}")
-        patient_id = f"p_{number_groups[-1][-2:].zfill(2)}"
+        patient_number = int(number_groups[-1])
+        patient_id = f"p_{patient_number}"
 
         all2D.append(ret2D)
         all3D.append(ret3D)
